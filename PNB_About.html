@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+    Pawfect Nibbles & Bites
+    Internship Project
+    
+    Pawfect Nibbles & Bites
+    About Page
+
+    Author:   Meghan Wilkerson
+    Date:     2026-01-08
+
+    Filename: PNB_About.html
+   -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="Pawfect Nibbles & Bites, pet treats, dog treats, cat treats, natural, allergy-friendly, allergy-sensitive"
+    />
+    <title>Pawfect Nibbles & Bites - Home Page</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Style Sheets -->
+    <link href="CSS/PNB_Reset.css" rel="stylesheet" />
+    <link href="CSS/PNB_Fonts.css" rel="stylesheet" />
+    <link href="CSS/PNB_LayoutStyles.css" rel="stylesheet" />
+    <link href="CSS/PNB_AboutStyles.css" rel="stylesheet" />
+    <!-- JavScript Files -->
+    <script src="JS/PNB_SideNav.JS"></script>
+    <script src="JS/PNB_Pawprints.JS"></script>
+  </head>
+
+  <body>
+    <!-- Header with slogan, mainNav, and shopping button/cart -->
+    <header id="header">
+
+      <div class="headerContent">
+
+        <!-- Mobile Hamburger Button -->
+        <span class="mobileHambBtn" onclick="openNav()">&#9776;</span>
+
+        <!-- Logo & Slogan -->
+        <div class="leftHead">
+          <a href="PNB_Index.html" class="logoLink">
+            <img src="Graphics/Logos/LandscapeLogo2.svg"
+                alt="Pawfect Nibbles & Bites"
+                class="logo">
+          </a>
+          <div class="slogan">
+            <h2>Wholesome Treats for Chewsy Paws.</h2>
+          </div>
+        </div>
+
+        <!-- Mobile Cart Button -->
+        <a href="PNB_Cart.html" class="mobileCartBtn cartBtn">
+          <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+          <span class="cartCount">0</span>
+        </a>
+
+        <!-- Main Navigation -->
+        <nav class="mainNav">
+          <ul>
+            <li><a href="PNB_Index.html">Home</a></li>
+            <li><a href="PNB_About.html">About</a></li>
+            <li><a href="PNB_Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Shop and Cart Buttons -->
+        <div class="rightHead">
+
+          <!-- Jump-to Section Button -->
+          <div class="jumpShopWrapper">
+            <div class="jumpNavWrapper">
+              <button class="jumpNavBtn">
+                Jump<span class="hideWhenSmall">To</span><span class="arrow">&#x25BC;</span>
+              </button>
+              <div class="jumpNavDropdown">
+                <a href="#aboutStory">Our Origin Story</a>
+                <a href="#treatPhilosophy">What Makes Our Treats Different</a>
+                <a href="#treatTasters">Quality Control Treat Tasters</a>
+                <a href="#behindTheScenes">Behind the Scenes</a>
+                <a href="#bloopersSection">Bloopers & Funny Moments</a>
+                <a href="#orderProcess">How Orders Work (Shipping)</a>
+                <a href="#aboutClosing">Why We Do What We Do</a>
+              </div>
+            </div>
+
+            <div class="shopWrapper">
+              <a href="PNB_Shop.html" class="shopBtn">
+                Shop<span class="hideWhenSmall">Treats</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="PNB_Cart.html" class="cartBtn">
+            <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+            <span class="cartCount">0</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="divider headerWave"></div>
+
+    </header>
+
+      <!-- Side Navigation for Small Screens -->
+        <div id="sideNav" class="sideNav">        
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+          <div class="linkGroup">
+            <!-- Cart -->
+             <div class="cartWrapper">
+              <a href="PNB_Cart.html" class="cartBtn">
+                <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+                <span class="cartCount">0</span>
+              </a>
+            </div>
+
+            <!-- Main links -->
+            <div class="navWrapper">
+              <a href="PNB_Index.html">Home</a>
+              <a href="PNB_About.html">About</a>
+              <a href="PNB_Contact.html">Contact</a>
+            </div>
+
+            <!-- Shop Button -->
+            <div class="shopWrapper">
+              <a href="PNB_Shop.html" class="shopBtn">Shop Treats</a>
+            </div> 
+
+            <!-- Jump To section inside the same group -->
+            <div class="sideJumpGroup">
+              <h3>Jump To</h3>
+              <a href="#aboutStory" onclick="closeNav()">Our Origin Story</a>
+              <a href="#treatPhilosophy" onclick="closeNav()">What Makes Our Treats Different</a>
+              <a href="#treatTasters" onclick="closeNav()">Quality Control Treat Tasters</a>
+              <a href="#behindTheScenes" onclick="closeNav()">Behind the Scenes</a>
+              <a href="#bloopersSection" onclick="closeNav()">Bloopers & Funny Moments</a>
+              <a href="#orderProcess" onclick="closeNav()">How Orders Work (Shipping)</a>
+              <a href="#aboutClosing" onclick="closeNav()">Why We Do What We Do</a>
+            </div>
+          </div>
+        </div>
+
+      
+    <!-- Main Content -->
+    <main id="content">
+      <section class="aboutStory" id="aboutStory">
+        <div class="sectionContent">
+          <h2>Our Origin Story</h2>
+          <p>
+              The idea of <span class="boldText">Pawfect Nibbles & Bites</span> began in May 2025, shortly after we adopted Thor. His allergies
+              meant we had to rethink what went into his food and treats. I (Meghan) started experimenting
+              with baking homemade treats using simple, natural ingredients that were safe for him to eat.
+          </p>
+        <br />
+          <p>
+              What started as careful experimentation quickly became a passion that blended
+              my love of baking with my love for my pets. With a culinary background and a science driven, 
+              analytical mind, I've spent hours researching and perfecting recipes that are not only 
+              allergy-friendly but also delicious (according to the pets) and nutritious. Each treat 
+              is crafted with care, ensuring that every bite is packed with flavor and free from common allergens.
+          </p>
+        <br />
+          <p>
+              While not necessarily recommended for human consumption, they are completely safe for humans to eat as well.
+              We will not feed our pets anything that we wouldn't eat ourselves, and most batches have been sampled before 
+              and after cooking. Curiosity got the better of us more than once! There are no added sugars in the treats, so
+              to humans they taste like very bland cookies.
+          </p>
+
+          <div class="backToTopWrapper">
+            <a href="#header" class="backToTop">Back to Top</a>
+          </div>
+
+          <div class="pawTrail">
+            <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+          </div>
+        </div>
+      </section>
+
+      <div class="divider wave1"></div>
+
+      <section class="treatPhilosophy">
+        <div class="sectionContent" id="treatPhilosophy">
+          <h2>What Makes Our Treats Different</h2>
+          <p>
+              <span class="boldText">Pawfect Nibbles & Bites</span> treats are made with simple, natural ingredients and minimal
+              preservatives. Because freshness matters, our treats have shorter shelf lives
+              by design. All treats baked in small batches within a week of an
+              order being placed so your pets get treats that haven’t been sitting around
+              for months. If you're looking for a specific ingredient that's not currently available, 
+              or if your pets have allergies to any of our current treats, please reach out to us directly
+              and we can look into additional options.
+          </p>
+
+          <div class="backToTopWrapper">
+            <a href="#header" class="backToTop">Back to Top</a>
+          </div>
+
+          <div class="pawTrail">
+            <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+          </div>
+        </div>
+      </section>
+
+      <div class="divider wave2"></div>
+
+      <section class="treatTasters" id="treatTasters">
+        <div class="sectionContent">
+          <h2>Quality Control Treat Tasters</h2>
+
+          <div class="tasterGrid">
+              <figure class="tasterCard">
+                  <img src="Graphics/Photos/Bella.jpg" alt="Bella">
+                      <figcaption>
+                          <h3>Bella</h3><br>
+                          Senior taste tester & drool bubble extraordinaire. Bella is also
+                          the leader napper of the bunch.
+                      </figcaption>
+              </figure>
+
+              <figure class="tasterCard">
+                  <img src="Graphics/Photos/Thor.jpg" alt="Thor">
+                      <figcaption>
+                          <h3>Thor</h3><br>
+                          Allergy-conscious intern filled with drool. Thor is the puppy of
+                          the bunch & is always ready to play.
+                      </figcaption>
+              </figure>
+
+              <figure class="tasterCard">
+                  <img src="Graphics/Photos/Storm.jpg" alt="Storm">
+                      <figcaption>
+                          <h3>Storm</h3><br>
+                          Self-appointed lead treat negotiator. Storm is a dog trapped in a 
+                          cat's body. She's always ready to cuddle.
+                      </figcaption>
+              </figure>
+
+              <figure class="tasterCard">
+                  <img src="Graphics/Photos/Nala.jpg" alt="Nala">
+                      <figcaption>
+                          <h3>Nala</h3><br>
+                          Chief couch observer & the pickiest of the bunch. Nala spends her days
+                          chasing her own tail and feet.
+                      </figcaption>
+              </figure>
+          </div>
+
+          <div class="backToTopWrapper">
+            <a href="#header" class="backToTop">Back to Top</a>
+          </div>
+
+          <div class="pawTrail">
+            <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+          </div>
+        </div>
+      </section>
+
+      <div class="divider wave3"></div>
+
+      <section class="behindTheScenes" id="behindTheScenes">
+        <div class="sectionContent">
+          <h2>Behind the Scenes</h2>
+          <p class="sectionIntro">
+              Peek inside the kitchen where the magic happens! Our treats are mixed, molded, and baked 
+              with care with the assistance of our furry taste tasters.
+          </p>
+            <div class="btsGallery">
+              <figure class="btsPhoto">
+                  <img src="Graphics/Photos/BakingProcess1.jpg" alt="Mixing the ingredients">
+                  <figcaption>Real, natural ingredients, measured twice, mixed once.</figcaption>
+              </figure>
+
+              <figure class="btsPhoto">
+                  <img src="Graphics/Photos/BakingProcess2.jpg" alt="Treats in the oven">
+                  <figcaption>First bake time: 15-20 minutes or a short nap.</figcaption>
+              </figure>
+              
+              <figure class="btsPhoto">
+                  <img src="Graphics/Photos/BakingProcess3.jpg" alt="Nibbles, Bites, and Chews on a tray">
+                  <figcaption>Chews, Nibbles, and Bites getting a ready for a second bake.</figcaption>
+              </figure>
+
+              <figure class="btsPhoto">
+                  <img src="Graphics/Photos/BakingProcess4.jpg" alt="Nibbles on a tray">
+                  <figcaption>Nibbles training treats ready for the second bake.</figcaption>
+              </figure>
+            </div>
+
+            <div class="backToTopWrapper">
+              <a href="#header" class="backToTop">Back to Top</a>
+            </div>
+
+            <div class="pawTrail">
+              <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+            </div>
+        </div>
+      </section>
+
+      <div class="divider wave4"></div>
+
+      <section class="bloopersSection" id="bloopersSection">
+        <div class="sectionContent">
+          <h2>Bloopers & Funny Moments</h2>
+          <div class="bloopersGallery">
+              <figure class="bloopPhoto">
+                  <img src="Graphics/Photos/Blooper1.jpg" alt="Storm kneading a blanket">
+                  <figcaption>Storm showing off her biscuit-making skills.</figcaption>
+              </figure>
+
+              <figure class="bloopPhoto">
+                  <img src="Graphics/Photos/Blooper2.jpg" alt="Thor showing off a drool strand">
+                  <figcaption>Thor drooling over his favorite ingredients.</figcaption>
+              </figure>
+              
+              <figure class="bloopPhoto">
+                  <img src="Graphics/Photos/Blooper3.jpg" alt="Bella and Storm begging for treats">
+                  <figcaption>Bella and Storm using their puppy-dog stare to beg for treats.</figcaption>
+              </figure>
+
+              <figure class="bloopPhoto">
+                  <img src="Graphics/Photos/Blooper4.jpg" alt="Thor begging to taste test">
+                  <figcaption>Thor begging to test his favorite, Blue-Apple Bash.</figcaption>
+              </figure>
+          </div>
+
+          <div class="backToTopWrapper">
+            <a href="#header" class="backToTop">Back to Top</a>
+          </div>
+
+          <div class="pawTrail">
+            <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+            <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+          </div>
+        </div>
+      </section>
+
+      <div class="divider wave5"></div>
+
+      <section class="orderProcess" id="orderProcess">
+        <div class="sectionContent">
+          <h2>How Orders Work</h2>
+            <p>
+                Each order is prepared in small batches to keep treats fresh and thoughtfully
+                made. Most treats are baked to order or within a week of purchase.
+                Once baked, treats are carefully packaged and shipped out within 1-3 business days.
+                Depending on your location, you can expect to receive your order within
+                3-7 business days. This leaves the average time from purchase to your door of two weeks. 
+                Expedited shipping options are available at checkout for an additional fee. If you need a
+                rush order, please contact us directly prior to purchase and we will do our best to accommodate 
+                your needs.
+            </p>
+            <br />
+            <p>
+                <span class="boldText">Shipping:</span> for now, we’re only shipping within the United States. 
+                That way, we can make sure every treat arrives fresh, safe, and ready to be loved. 
+                We wish we could send them worldwide, but international shipping gets tricky (and expensive!).
+             </p>
+             
+            <div class="backToTopWrapper">
+              <a href="#header" class="backToTop">Back to Top</a>
+            </div>
+
+            <div class="pawTrail">
+              <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+            </div>
+        </div> 
+      </section>
+
+      <div class="divider wave6"></div>
+
+      <section class="aboutClosing" id="aboutClosing">
+        <div class="sectionContent">
+          <h2>Why We Do What We Do</h2>
+            <p>
+                At <span class="boldText">Pawfect Nibbles & Bites</span>, we believe that pets deserve treats made with the same care and quality as those we enjoy 
+                ourselves. Our treats are the only pet treat line built around allergy awareness and simplicity. Each batch is 
+                thoughtfully baked, minimally preserved, and free from unnecessary extras.
+            </p>
+
+            <div class="backToTopWrapper">
+              <a href="#header" class="backToTop">Back to Top</a>
+            </div>
+
+            <div class="pawTrail">
+              <img src="Graphics/Pawprints/PurplePawprint.svg" alt="Purple Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/BlackPawprint.svg" alt="Black Pawprint" class="pawprint">
+              <img src="Graphics/Pawprints/TealPawprint.svg" alt="Teal Paw Pawprint" class="pawprint">
+            </div>
+        </div>
+      </section>
+
+    </main>
+
+      <!-- Footer -->
+      <footer id="footer">
+
+        <div class="divider footerWave"></div>
+
+        <div class="footerContent">
+          <div class="footerLeft">
+            <p>&copy; 2026 Pawfect Nibbles & Bites. All rights reserved.</p>
+          </div>
+
+          <div class="footerRight">
+            <div class="contactLinks">
+              <a href="PNB_Contact.html">Contact</a>
+              <a href="#">Facebook</a>
+              <a href="#">Instagram</a>
+              <a href="#">X</a>
+            </div>
+
+            <a href="PNB_Index.html" class="footerLogo">
+              <img src="Graphics/Logos/PortraitLogo.svg" alt="Pawfect Nibbles & Bites">
+            </a>
+          </div>
+        </div>
+      </footer>
+
+  </body>
+</html>
