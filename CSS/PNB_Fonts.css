@@ -1,0 +1,83 @@
+/*
+    Pawfect Nibbles & Bites
+    Internship Project
+    
+    Pawfect Nibbles & Bites
+    Font Styles
+
+    Author:  Meghan Wilkerson
+    Date:    2025-12-29
+
+    Filename: PNB_Fonts.html
+*/
+
+/* ===========
+   Font Styles
+   =========== */
+
+.font-logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-logo-bold {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-logo-italic {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-heading {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font-heading-bold {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-body-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-body-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-accent {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-accent-bold {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-accent-italic {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
