@@ -33,6 +33,7 @@
     <link href="CSS/PNB_IndexStyles.css" rel="stylesheet" />
     <!-- JavScript Files -->
     <script src="JS/PNB_SideNav.JS"></script>
+    <script src="JS/PNB_IndexSlideshow.JS"></script>
   </head>
 
   <body>
@@ -111,20 +112,49 @@
       <!-- Main Content -->
       <main id="content">
         <!-- Intro -->
-        <section class="intro">
-            
-          <div class="introText">
-            <h2>Pawfect <br/>Nibbles & Bites</h2>
-            <p>makes wholesome, allergy-aware treats for dogs and cats who are a little chewsy.</p>
-            <p>Each small batch is thoughtfully baked in a home-based kitchen with simple ingredients, minimal preservation, and free from unnecessary extras. Treats are available in a variety of flavors and sizes so every pet can enjoy a safe, happy bite.</p>
-          </div>
-            
-          <figure class="introImage">
-            <img src="Graphics/Photos/BellaAndThor.jpg" alt="Bella and Thor">
-            <figcaption class="mainPhotoCaption">Bella and Thor, paws-itively paw-some snack inspectors.</figcaption>
-          </figure>
+          <section class="intro">
+            <div class="introLeft">
+              <div class="introText">
+                <h2>Pawfect <br/>Nibbles & Bites</h2>
+                <p>makes wholesome, allergy-aware treats for dogs 
+                  and cats who are a little chewsy.</p>
+                <p>Each small batch is thoughtfully baked in a 
+                  home-based kitchen with simple ingredients, 
+                  minimal preservation, and free from unnecessary 
+                  extras. Treats are available in a variety of flavors 
+                  and sizes so every pet can enjoy a safe, happy bite.</p>
+              </div>
+            </div>
 
-        </section>
+            <!-- Index Slideshow -->
+              <div class="indexSlideshow">
+                <div class="indexSlidesWrapper">
+                  <figure>
+                    <img src="Graphics/Treats/Nibbles_PBPunkin2.jpg" class="active" alt="Nibbles Peanut Butter Pumpkin">
+                    <figcaption>Nibbles Peanut Butter Pumpkin</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="Graphics/Treats/Bites_BananaNutty.jpg" alt="Banana Nutty Bites">
+                    <figcaption>Banana Nutty Bites</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="Graphics/Treats/Chews_PBPunkin.jpg" alt="Peanut Butter Pumpkin Chews">
+                    <figcaption>Peanut Butter Pumpkin Chews</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="Graphics/Photos/BellaAndThor.jpg" alt="Bella and Thor">
+                    <figcaption>Bella and Thor, paws-itively paw-some snack inspectors</figcaption>
+                  </figure>
+                </div>
+
+                <!-- Control Bar -->
+                <div class="slideshowControls">
+                  <button class="prevSlide">&#10094;</button>
+                  <button class="playPause">&#10073;&#10073;</button>
+                  <button class="nextSlide">&#10095;</button>
+                </div>
+              </div>
+          </section>  
 
         <!-- Pillars Banner -->
         <section class="pillars">
@@ -159,7 +189,6 @@
          
           <article class="treatCard">
             <a href="PNB_Shop.html?size=nibbles">
-              <!-- Eventually linked with JS to the shop page filtered by the size -->
               <img
                 src="Graphics/Treats/Nibbles.svg"
                 alt="Illustration of Nibbles treat size"
@@ -174,7 +203,6 @@
 
           <article class="treatCard">
             <a href="PNB_Shop.html?size=bites">
-              <!-- Eventually linked with JS to the shop page filtered by the size -->
               <img
                 src="Graphics/Treats/Bites.svg"
                 alt="Illustration of Bites treat size"
@@ -189,7 +217,6 @@
 
           <article class="treatCard">
             <a href="PNB_Shop.html?size=chews">
-              <!-- Eventually linked with JS to the shop page filtered by the size -->
               <img
                 src="Graphics/Treats/Chews.svg"
                 alt="Illustration of Chews treat size"
@@ -204,7 +231,6 @@
 
           <article class="treatCard">
             <a href="PNB_Shop.html?size=chomps">
-              <!-- Eventually linked with JS to the shop page filtered by the size -->
               <img
                 src="Graphics/Treats/Chomps.svg"
                 alt="Illustration of Chomps treat size"
