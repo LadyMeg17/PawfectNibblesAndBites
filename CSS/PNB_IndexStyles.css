@@ -55,18 +55,16 @@
   background: radial-gradient(circle, 
             rgba(247,225,198,0.95) 0%,   
             rgba(255,249,236,0.95) 70%,   
-            rgba(247,225,198,0.6) 100%);  
+            rgba(247,225,198,0.6) 100%);
   border-radius: 50% / 50%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .introText p {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #5A5A5A;
-  text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.1);
+  color: #39393a;
   margin-bottom: 1rem;
 }
 
@@ -77,62 +75,40 @@
   border-radius: 12px;
   overflow: hidden;
   display: flex;
-  flex-direction: column; 
-  height: 400px; 
+  flex-direction: column;
+  height: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1),
               0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   position: relative;
-  background-color: #000;
+  background-color: #fdf8f1; 
 }
 
 /* --- Slides Wrapper --- */
 .indexSlidesWrapper {
   position: relative;
-  flex: 1 1 auto; 
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
 }
 
-/* Figures / Images */
+/* Each slide */
 .indexSlidesWrapper figure {
   margin: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0; 
 }
 
+/* Images */
 .indexSlidesWrapper img {
+  position: absolute; 
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  display: block;
-  z-index: 1;
 }
 
 .indexSlidesWrapper img.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-/* Captions */
-.indexSlidesWrapper figcaption {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-family: "Lato", sans-serif;
-  font-size: 1rem;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  z-index: 3;
-}
-
-.indexSlidesWrapper img.active + figcaption {
   opacity: 1;
 }
 
@@ -140,31 +116,43 @@
 .slideshowControls {
   flex-shrink: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  padding: 0.25rem 0.5rem; 
-  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
   border-top: 1px solid #ddd;
-  z-index: 10; 
-  position: relative; 
+}
+
+/* Caption (left side) */
+.slideCaption {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  color: #39393A;
+  font-weight: 600;
+}
+
+/* Buttons (right side) */
+.slideButtons {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .slideshowControls button {
   cursor: pointer;
-  font-size: 1rem;      
+  font-size: 1rem;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
   background-color: #fdf8f1;
   color: #1fa59a;
   font-weight: 700;
-  transition: background 0.2s ease, transform 0.2s ease;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1;    
+  line-height: 1;
+
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .slideshowControls button:hover {
@@ -301,7 +289,7 @@
   line-height: 1.5;
   text-align: center;
   margin: 0 0 1rem;
-  color: #5A5A5A;
+  color: #39393a;
 }
 
 .treatCard .shopText {
@@ -327,12 +315,18 @@
    ======================
 */
 
-/* --- Large to Medium --- */
-@media (max-width: 1200px) {
+/* --- Medium/Large Screens --- */
+@media (max-width: 1060px) {
   .treatCard {
     flex: 1 1 calc(50% - 2rem);
     max-width: none;
   }
+
+  .treatCategories {
+    gap: 2rem; 
+    margin-top: 4rem; 
+    margin-bottom: 4rem;
+  } 
 }
 
 /* --- Medium Screens --- */
@@ -341,16 +335,42 @@
     max-height: 400px;
     object-fit: cover;
   }
+}
 
-  .treatCategories {
-    gap: 2rem; 
-    margin-top: 4rem; 
-    margin-bottom: 4rem;
+@media (max-width: 950px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; 
+  }
+
+  .introLeft,
+  .indexSlideshow {
+    flex: 1 1 100%;
+    max-width: 650px; 
+    width: 100%;
+  }
+
+  .indexSlideshow {
+    margin-top: 1rem; 
+    margin-bottom: 1rem; 
+  }
+
+  .indexSlidesWrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .indexSlidesWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
 /* --- Small Screens --- */
-@media (max-width: 700px) {
+@media (max-width: 815px) {
   .intro {
     flex-direction: column;
     align-items: center;
@@ -432,7 +452,18 @@
   }
 }
 
-/* --- Extra Small Screens --- */
+/* --- Extra Small Screens (Mobile) --- */
+
+@media (max-width: 525px) {
+  .divider.pillarWaveTop {
+    transform: translateY(-15px); 
+  }
+
+  .divider.pillarWaveBottom {
+    transform: translateY(15px);  
+  }
+}
+
 @media (max-width: 500px) {
   .treatCard {
     flex: 1 1 100%;
@@ -451,3 +482,4 @@
     padding: 0.4rem 0.8rem;
   }
 }
+

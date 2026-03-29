@@ -20,30 +20,36 @@
    ------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Grab all slides and captions
-  const slides = document.querySelectorAll(".indexSlideshow img");
-  const captions = document.querySelectorAll(".indexSlideshow figcaption");
-  const slideshow = document.querySelector(".indexSlideshow");
+
+  const slides = document.querySelectorAll(".indexSlidesWrapper img");
+  const captionBox = document.querySelector(".slideCaption");
+
+  // Captions array (matches slide order)
+  const captions = [
+    "Nibbles Peanut Butter Pumpkin",
+    "Banana Nutty Bites",
+    "Peanut Butter Pumpkin Chews",
+    "Bella and Thor, paws-itively paw-some snack inspectors"
+  ];
 
   let currentSlide = 0;
   let isPlaying = true;
-  let slideInterval = setInterval(nextSlide, 5000);
+  let slideInterval = setInterval(nextSlide, 6000);
 
-  // Show a specific slide
   function showSlide(n) {
     slides.forEach((slide, i) => {
       slide.classList.remove("active");
-      if (captions[i]) captions[i].style.opacity = 0;
-
       if (i === n) {
         slide.classList.add("active");
-        if (captions[i]) captions[i].style.opacity = 1;
       }
     });
+
+    // Update caption
+    captionBox.textContent = captions[n];
+
     currentSlide = n;
   }
 
-  // Go to next/previous slide
   function nextSlide() {
     showSlide((currentSlide + 1) % slides.length);
   }
@@ -52,28 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide((currentSlide - 1 + slides.length) % slides.length);
   }
 
-  // Toggle play/pause
   function togglePlayPause() {
     const btn = document.querySelector(".playPause");
+
     if (isPlaying) {
       clearInterval(slideInterval);
-      btn.innerHTML = "&#9654;"; 
+      btn.innerHTML = "&#9658;"; // play ▶
     } else {
       slideInterval = setInterval(nextSlide, 5000);
-      btn.innerHTML = "&#10073;&#10073;"; 
+      btn.innerHTML = "&#10073;&#10073;"; // pause ❚❚
     }
+
     isPlaying = !isPlaying;
   }
 
-  // Event listeners for controls
-  const nextBtn = document.querySelector(".nextSlide");
-  const prevBtn = document.querySelector(".prevSlide");
-  const playBtn = document.querySelector(".playPause");
+  // Buttons
+  document.querySelector(".nextSlide").addEventListener("click", nextSlide);
+  document.querySelector(".prevSlide").addEventListener("click", prevSlide);
+  document.querySelector(".playPause").addEventListener("click", togglePlayPause);
 
-  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-  if (playBtn) playBtn.addEventListener("click", togglePlayPause);
+  // Optional: click slideshow to pause/play
+  document.querySelector(".indexSlidesWrapper").addEventListener("click", togglePlayPause);
 
-  // Initialize the first slide
+  // Init
   showSlide(currentSlide);
 });

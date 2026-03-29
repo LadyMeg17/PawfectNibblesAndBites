@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+    Pawfect Nibbles & Bites
+    Internship Project
+    
+    Pawfect Nibbles & Bites
+    Cart Page
+
+    Author:  Meghan Wilkerson
+    Date:    2026-03-28
+
+    Filename: PNB_Cart.html
+   -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="Pawfect Nibbles & Bites, pet treats, dog treats, cat treats, natural, allergy-friendly, allergy-sensitive"
+    />
+    <title>Pawfect Nibbles & Bites - Cart Page</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Style Sheets -->
+    <link href="CSS/PNB_Reset.css" rel="stylesheet" />
+    <link href="CSS/PNB_Fonts.css" rel="stylesheet" />
+    <link href="CSS/PNB_LayoutStyles.css" rel="stylesheet" />
+    <link href="CSS/PNB_CartStyles.css" rel="stylesheet" />
+    
+    <!-- JavScript Files -->
+    <script src="JS/PNB_SideNav.JS" defer></script>
+    <script src="JS/PNB_TreatData.JS" defer></script>
+    <script src="JS/PNB_CartCounter.JS" defer></script>  
+    <script src="JS/PNB_Cart.JS" defer></script>      
+  </head>
+
+  <body class="cartPage">
+    <!-- Header with slogan, mainNav, and shopping button/cart -->
+    <header id="header">
+
+      <div class="headerContent">
+
+        <!-- Mobile Hamburger Button -->
+        <span class="mobileHambBtn" onclick="openNav()">&#9776;</span>
+
+        <!-- Logo & Slogan -->
+        <div class="leftHead">
+          <a href="PNB_Index.html" class="logoLink">
+            <img src="Graphics/Logos/LandscapeLogo2.svg"
+                alt="Pawfect Nibbles & Bites"
+                class="logo">
+          </a>
+          <div class="slogan">
+            <h2>Wholesome Treats for Chewsy Paws.</h2>
+          </div>
+        </div>
+
+        <!-- Mobile Cart Button -->
+        <a href="PNB_Cart.html" class="mobileCartBtn cartBtn">
+          <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+          <span class="cartCount">0</span>
+        </a>
+
+        <!-- Main Navigation -->
+        <nav class="mainNav">
+          <ul>
+            <li><a href="PNB_Index.html">Home</a></li>
+            <li><a href="PNB_About.html">About</a></li>
+            <li><a href="PNB_Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Shop and Cart Buttons -->
+        <div class="rightHead">
+          <div class="shopWrapper">
+            <a href="PNB_Shop.html" class="shopBtn">
+              Shop<span class="hideWhenSmall"> Treats</span>
+            </a>
+          </div>
+
+          <a href="PNB_Cart.html" class="cartBtn">
+            <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+            <span class="cartCount">0</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="divider headerWave"></div>
+
+    </header>
+
+    <!-- Side Navigation for Small Screens -->
+      <div id="sideNav" class="sideNav">        
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="linkGroup">
+
+          <!-- Cart -->
+          <div class="cartWrapper">
+            <a href="PNB_Cart.html" class="cartBtn">
+              <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+              <span class="cartCount">0</span>
+            </a>
+          </div>
+
+          <!-- Main links -->
+          <div class="navWrapper">
+            <a href="PNB_Index.html">Home</a>
+            <a href="PNB_About.html">About</a>
+            <a href="PNB_Contact.html">Contact</a>
+          </div>
+
+          <!-- Shop Button -->
+          <div class="shopWrapper">
+            <a href="PNB_Shop.html" class="shopBtn">Shop Treats</a>
+          </div> 
+
+         </div>
+        </div>
+      </div>
+
+     
+    <!-- Main Content -->      
+    <main id="cartContent">
+
+        <div class="cartIntro">
+            <h2>Your Shopping Bag</h2> 
+            <p>Review your treats below. You can adjust 
+                quantities or remove items before checkout.</p>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div id="cartItemsContainer">
+            <!-- JS will dynamically insert cart items here -->
+        </div>
+
+        <!-- Cart Total Section -->
+        <div class="cartTotalSection">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+        </div>
+
+        <!-- Checkout Button (PayPal) -->
+        <div class="checkoutBtnWrapper">
+            <button id="checkoutBtn" class="checkoutBtn">Checkout with PayPal</button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+        <footer id="footer">
+
+        <div class="divider footerWave"></div>
+
+        <div class="footerContent">
+            <div class="footerLeft">
+            <p>&copy; 2026 Pawfect Nibbles & Bites. All rights reserved.</p>
+            </div>
+
+            <div class="footerRight">
+            <div class="contactLinks">
+                <a href="PNB_Contact.html">Contact</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">X</a>
+            </div>
+
+            <a href="PNB_Index.html" class="footerLogo">
+                <img src="Graphics/Logos/PortraitLogo.svg" alt="Pawfect Nibbles & Bites">
+            </a>
+            </div>
+        </div>
+        </footer>
+
+        <!-- PayPal SDK -->
+        <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+  </body>
+</html>

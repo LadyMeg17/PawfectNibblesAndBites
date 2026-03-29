@@ -105,7 +105,7 @@ main + footer {
 
 .contactText h2 {
   font-size: 2rem;
-  color: #A08BC1;
+  color: #1fa59a;
   padding-bottom: 1.5rem;
 }
 
@@ -171,7 +171,7 @@ main + footer {
 .contactForm .sectionContent h2,
 .faqSection .sectionContent h2 {
   font-size: 1.5rem;
-  color: #a08bc1;
+  color: #1fa59a;
   margin-bottom: 1rem;
 }
 
@@ -356,15 +356,15 @@ main + footer {
 
 .faqSection .sectionContent h3 {
   font-size: 1.1rem;
-  color: #1fa59a;
+  color: #a08bc1;
   margin: 0.5rem 0;
 }
 
 .faqSection .faqItem {
-  background: rgba(255, 245, 225, 0.85);
   border-radius: 14px;
   padding: 1rem 1.5rem;
   margin-bottom: 1rem;
+  background: #ffffff; 
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -380,7 +380,6 @@ main + footer {
   color: #39393A;
   margin: 0.5rem 0 0;
 }
-
 
 /* ==============
    Pawprint Trail 

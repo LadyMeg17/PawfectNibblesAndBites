@@ -15,81 +15,155 @@
 
 */
 
+/* ----------
+   TREAT PAGE
+   ----------- */
 
+document.addEventListener("DOMContentLoaded", function () {
+  const sizeSelect = document.getElementById("treatSize");
+  const priceDisplay = document.getElementById("treatPrice");
+  const quantityInput = document.getElementById("treatQuantity");
 
-  /* -------------------
-     ESTABLISH VARIABLES
-     ------------------- */
+  // Get current treat id from data attribute on h1
+  const treatHeader = document.querySelector(".treatPageHeader");
+  const treatId = treatHeader.dataset.id;
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.querySelectorAll(".treatPhotoGallery .fade");
-    let slideIndex = 0;
-    const sizeSelect = document.getElementById("treatSize");
-    const priceDisplay = document.getElementById("treatPrice");
+  // Look up treat in treatData
+  const treat = treatData[treatId];
 
-    const treatPrices = {
-      nibbles: 4.99,
-      bites: 6.99,
-      chews: 9.99,
-      chomps: 11.99
-    };
+  if (!treat) {
+    console.error("Treat not found in treatData:", treatId);
+    return;
+  }
 
   /* --------------------
-     SHOW SLIDE FUNCTIONS
-     -------------------- */
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
-    });
-  }
-
-  function updateSlideForSize(selectedSize) {
-    const firstMatchingSlide = Array.from(slides).find(
-      slide => slide.dataset.size === selectedSize
-    );
-    if (firstMatchingSlide) {
-      slideIndex = Array.from(slides).indexOf(firstMatchingSlide);
-      showSlide(slideIndex);
-    }
-  }
-
-   /* --------------------
      UPDATE PRICE FUNCTION
-     --------------------- */
-
+     -------------------- */
   function updatePrice() {
     if (!sizeSelect || !priceDisplay) return;
     const selectedSize = sizeSelect.value;
-    const price = treatPrices[selectedSize] || 0;
+    const price = treat.prices[selectedSize] || 0;
     priceDisplay.textContent = `$${price.toFixed(2)}`;
   }
 
-  /* --------------
-     INITIALIZATION
-     -------------- */
-  showSlide(slideIndex);
-  updatePrice();
-
-  /* ---------------
-     EVENT LISTENERS
-     --------------- */
-
-  // Next / Prev buttons
-  window.plusSlides = function(n) {
-    slideIndex += n;
-    if (slideIndex >= slides.length) slideIndex = 0;
-    if (slideIndex < 0) slideIndex = slides.length - 1;
-    showSlide(slideIndex);
-  };
-
-  // Size selection dropdown updates slide & price
+  /* ----------
+     INITIALIZE
+     ---------- */
   if (sizeSelect) {
-    sizeSelect.addEventListener("change", function() {
-      const selectedSize = this.value;
-      updateSlideForSize(selectedSize);
-      updatePrice();
-    });
+    sizeSelect.innerHTML = treat.availableSizes
+      .map(
+        size => `<option value="${size}">${size.charAt(0).toUpperCase() + size.slice(1)}</option>`
+      )
+      .join("");
   }
 
+  updatePrice();
+
+  /* --------------
+     EVENT LISTENERS
+     -------------- */
+  if (sizeSelect) {
+    sizeSelect.addEventListener("change", updatePrice);
+  }
+
+/* --------------------
+   TOAST FEEDBACK FUNCTION
+   -------------------- */
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.className = "toastMessage";
+
+  // Create paw image
+  const pawImg = document.createElement("img");
+  pawImg.src = "/Graphics/Pawprints/PurplePawprint.svg"; // update path if needed
+  pawImg.alt = "paw";
+  pawImg.className = "toastPaw";
+
+  // Add paw and message to toast
+  toast.appendChild(pawImg);
+  const textNode = document.createTextNode(message);
+  toast.appendChild(textNode);
+
+  document.body.appendChild(toast);
+
+  // Trigger fade
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  // Remove toast after 3s
+  setTimeout(() => {
+    toast.style.opacity = 0;
+    setTimeout(() => toast.remove(), 500);
+  }, 3000);
+}
+
+  /* --------------------
+     ADD TO CART FUNCTION
+     -------------------- */
+  const addBtn = document.getElementById("addToCartBtn");
+  if (addBtn) {
+    addBtn.addEventListener("click", () => {
+      const selectedSize = sizeSelect.value;
+      let quantity = parseInt(quantityInput.value, 10);
+
+      // Validate quantity
+      if (isNaN(quantity) || quantity < 1) quantity = 1;
+
+      // Pull the correct price from TreatData
+      const price = treat.prices[selectedSize];
+      if (!price) {
+        console.error(`Price not found for size "${selectedSize}"`);
+        return;
+      }
+
+      // Build cart item
+      const cartItem = {
+        id: treatId,
+        name: treat.name,
+        size: selectedSize,
+        quantity: quantity,
+        price: price,
+        img: treat.img
+      };
+
+      // Get existing cart from localStorage
+      let cart = [];
+      try {
+        cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (!Array.isArray(cart)) cart = [];
+      } catch (e) {
+        console.warn("Invalid cart in localStorage, resetting.", e);
+        cart = [];
+      }
+
+      // Check if the same item + size already exists, then increment quantity
+      const existingIndex = cart.findIndex(
+        item => item.id === cartItem.id && item.size === cartItem.size
+      );
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += quantity;
+      } else {
+        cart.push(cartItem);
+      }
+
+      // Save updated cart to localStorage
+      try {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      } catch (e) {
+        console.error("Failed to save cart:", e);
+        showToast("Oops! Unable to add to cart. Please try again.");
+        return;
+      }
+
+      // Update cart counter if the function exists
+      if (typeof updateCartCounter === "function") updateCartCounter();
+
+      // Reset quantity to 1
+      quantityInput.value = 1;
+
+      // Show toast feedback
+      showToast(`${cartItem.name} (${cartItem.size}) added to bag!`);
+    });
+  }
 });
