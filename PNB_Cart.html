@@ -126,7 +126,7 @@
       </div>
 
      
-    <!-- Main Content -->      
+  <!-- Main Content -->      
     <main id="cartContent">
 
         <div class="cartIntro">
@@ -135,20 +135,75 @@
                 quantities or remove items before checkout.</p>
         </div>
 
-        <!-- Cart Items Container -->
-        <div id="cartItemsContainer">
-            <!-- JS will dynamically insert cart items here -->
-        </div>
+        <!-- Two-column layout wrapper -->
+        <div class="cartLayout">
 
-        <!-- Cart Total Section -->
-        <div class="cartTotalSection">
-            <span>Total:</span>
-            <span id="cartTotal">$0.00</span>
-        </div>
+            <!-- Cart Items Container -->
+            <div id="cartItemsContainer">
+                <!-- JS will dynamically insert cart items here -->
+            </div>
 
-        <!-- Checkout Button (PayPal) -->
-        <div class="checkoutBtnWrapper">
-            <button id="checkoutBtn" class="checkoutBtn">Checkout with PayPal</button>
+            <!-- Checkout Summary (right side) -->
+            <div class="checkoutSummary">
+
+                <!-- Shipping Options Section -->
+                <div class="shippingSection">
+                    <h3>Shipping</h3>
+
+                    <label class="shippingOption">
+                        <input type="radio" name="shipping" value="ground" checked>
+                        Ground Advantage — $7.50 (5–7 business days)
+                    </label>
+
+                    <label class="shippingOption">
+                        <input type="radio" name="shipping" value="priority">
+                        Priority Mail — $11.20 (2–5 business days)
+                    </label>
+                </div>
+
+                <!-- Cart Total Section -->
+                <div class="cartTotalSection">
+
+                    <div class="totalRow">
+                        <span class="label">Subtotal:</span>
+                        <span class="value" id="cartSubtotal">$0.00</span>
+                    </div>
+
+                    <div class="totalRow">
+                        <span class="label">Shipping:</span>
+                        <span class="value" id="cartShipping">$0.00</span>
+                    </div>
+
+                    <div class="totalRow">
+                      <span class="label">Sales Tax:</span>
+                      <span class="value">Calculated at Checkout</span>
+                    </div>
+
+                    <div class="totalRow">
+                        <span class="label">Total:</span>
+                        <span class="value" id="cartTotal">$0.00</span>
+                    </div>
+
+                </div>
+
+                <!-- Checkout Buttons -->
+                <div class="cartActionsWrapper">
+
+                    <div class="checkoutBtnWrapper">
+                        <button id="checkoutBtn" class="checkoutBtn">
+                            Checkout with PayPal
+                        </button>
+                        <div id="paypal-button-container" style="display:none; margin-top: 15px;"></div>
+                    </div>
+
+                    <button id="clearCartBtn" class="clearCartBtn">
+                        Clear Shopping Bag
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
     </main>
@@ -179,7 +234,7 @@
         </footer>
 
         <!-- PayPal SDK -->
-        <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AQT96tDNbXcsFdaU5m3avffSvbEmMrWbJwji_BuMYXiJkZSD3w6JtJgjCVoV95uAFc1ALYD2rjb4QKAL&currency=USD"></script>
 
   </body>
 </html>

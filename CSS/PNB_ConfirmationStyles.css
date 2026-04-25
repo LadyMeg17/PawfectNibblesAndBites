@@ -1,0 +1,361 @@
+/*
+  Pawfect Nibbles & Bites
+  Internship Project
+  
+  Pawfect Nibbles & Bites
+  Confirmation Page Styles
+
+  Author: Meghan Wilkerson
+  Date: 2026-04-19
+
+  Filename: PNB_ConfirmationStyles.css
+*/
+
+/* PAGE LAYOUT */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 3rem 1rem 3rem;
+  color: #39393A;
+}
+
+.mainNav ul {
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+}
+
+.mainNav a {
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+  color: #39393A;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+/* =========================
+   MAIN WRAPPER CARD
+========================= */
+
+.confirmWrapper {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+
+  text-align: center;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  font-family: "Lato", sans-serif;
+}
+
+/* =========================
+   ICON + TEXT
+========================= */
+
+.confirmIcon img {
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+  margin: 0 auto 1rem auto;
+
+  animation: logoPop 0.5s ease-out;
+
+  filter:
+    drop-shadow(0 6px 14px rgba(184,168,209,0.35))
+    drop-shadow(0 0 10px rgba(184,168,209,0.30));
+}
+
+@keyframes logoPop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.confirmWrapper h1 {
+  font-family: "Playfair Display", serif;
+  color: #1fa59a;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.confirmMessage {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   ORDER CARD
+========================= */
+
+.orderCard {
+  background: #f9f9f9;
+  border-radius: 14px;
+  padding: 1.5rem;
+
+  text-align: left;
+
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+
+  margin-bottom: 2rem;
+  font-family: "Lato", sans-serif;
+}
+
+.orderCard h3 {
+  font-family: "Merriweather", serif;
+  color: #a08bc1;
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.orderCard hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+/* =========================
+   ORDER ITEM ROWS
+========================= */
+
+.confirmItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+
+ border-bottom: none;
+}
+
+/* FIX: prevent double divider lines */
+.confirmItem:last-of-type {
+  border-bottom: none;
+}
+
+/* LEFT: image */
+.confirmItemLeft {
+  flex: 0 0 auto;
+}
+
+.confirmItemImg {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* CENTER: name */
+.confirmItemCenter {
+  flex: 1;
+  padding: 0 0.5rem;
+}
+
+.confirmItemCenter span {
+  color: #39393A;   
+  font-weight: 500;
+}
+
+/* RIGHT: price */
+.confirmItemRight {
+  flex: 0 0 auto;
+  font-weight: 600;
+  color: #1fa59a;
+}
+
+/* =========================
+   TOTALS
+========================= */
+
+.confirmTotals {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  align-items: flex-end; 
+  text-align: right;
+}
+
+.confirmTotals p {
+  margin: 0;
+  font-size: 0.95rem;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.confirmTotals p strong {
+  color: #1fa59a;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.continueBtn {
+  position: relative;
+  cursor: pointer;
+
+  height: 46px;
+  padding: 0 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+
+  background-color: #1FA59A;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  overflow: hidden;
+}
+
+/* hover behavior */
+.continueBtn:hover {
+  transform: scale(1.1);
+  font-weight: 700;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+/* shimmer sweep (your original style) */
+.continueBtn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+
+  width: 200%;
+  height: 200%;
+
+  background: rgba(255,255,255,0.15);
+
+  transform: rotate(25deg) translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.continueBtn:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* =========================
+   Paw Bullet List (REBUILT)
+   ========================= */
+
+.pawBulletList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pawBulletList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  margin-bottom: 0.75rem;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #39393A;
+}
+
+/* icon */
+.pawIcon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+
+  margin-top: 0.2em;
+}
+
+/* links */
+.pawBulletList a {
+  color: #1fa59a;
+  text-decoration: underline;
+}
+
+.pawBulletList a:hover {
+  color: #a08bc1;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  main {
+    padding: 2rem 1rem;
+  }
+
+  .confirmWrapper {
+    padding: 2rem 1.25rem;
+  }
+
+  .confirmWrapper h1 {
+    font-size: 1.6rem;
+  }
+
+  .orderCard {
+    padding: 1.25rem;
+  }
+
+  .confirmItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .confirmTotals p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

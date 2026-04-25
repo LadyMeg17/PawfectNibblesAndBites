@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+    Pawfect Nibbles & Bites
+    Internship Project
+    
+    Pawfect Nibbles & Bites
+    Confirmation Page
+
+    Author:  Meghan Wilkerson
+    Date:    2026-04-19 
+   -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="keywords"
+      content="Pawfect Nibbles & Bites, pet treats, dog treats, cat treats, natural, allergy-friendly, allergy-sensitive"
+    />
+
+    <title>Pawfect Nibbles & Bites - Confirmation Page</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Nunito&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="CSS/PNB_Reset.css" rel="stylesheet" />
+    <link href="CSS/PNB_Fonts.css" rel="stylesheet" />
+    <link href="CSS/PNB_LayoutStyles.css" rel="stylesheet" />
+    <link href="CSS/PNB_ConfirmationStyles.css" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="JS/PNB_SideNav.JS" defer></script>
+    <script src="JS/PNB_CartCounter.JS" defer></script>  
+    <script src="JS/PNB_TreatData.JS" defer></script>
+    <script src="JS/PNB_Confirmation.JS" defer></script>     
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <header id="header">
+
+      <div class="headerContent">
+
+        <span class="mobileHambBtn" onclick="openNav()">&#9776;</span>
+
+        <div class="leftHead">
+          <a href="PNB_Index.html" class="logoLink">
+            <img src="Graphics/Logos/LandscapeLogo2.svg"
+                 alt="Pawfect Nibbles & Bites"
+                 class="logo">
+          </a>
+          <div class="slogan">
+            <h2>Wholesome Treats for Chewsy Paws.</h2>
+          </div>
+        </div>
+
+        <a href="PNB_Cart.html" class="mobileCartBtn cartBtn">
+          <img src="Graphics/ShoppingBag.svg" alt="Cart">
+          <span class="cartCount">0</span>
+        </a>
+
+        <nav class="mainNav">
+          <ul>
+            <li><a href="PNB_Index.html">Home</a></li>
+            <li><a href="PNB_About.html">About</a></li>
+            <li><a href="PNB_Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="rightHead">
+          <div class="shopWrapper">
+            <a href="PNB_Shop.html" class="shopBtn">
+              Shop<span class="hideWhenSmall"> Treats</span>
+            </a>
+          </div>
+
+          <a href="PNB_Cart.html" class="cartBtn">
+            <img src="Graphics/ShoppingBag.svg" alt="Cart">
+            <span class="cartCount">0</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="divider headerWave"></div>
+
+    </header>
+
+    <!-- SIDE NAV -->
+    <div id="sideNav" class="sideNav">        
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <div class="linkGroup">
+
+        <div class="cartWrapper">
+          <a href="PNB_Cart.html" class="cartBtn">
+            <img src="Graphics/ShoppingBag.svg" alt="Cart">
+            <span class="cartCount">0</span>
+          </a>
+        </div>
+
+        <div class="navWrapper">
+          <a href="PNB_Index.html">Home</a>
+          <a href="PNB_About.html">About</a>
+          <a href="PNB_Contact.html">Contact</a>
+        </div>
+
+        <div class="shopWrapper">
+          <a href="PNB_Shop.html" class="shopBtn">Shop Treats</a>
+        </div> 
+
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <section class="confirmWrapper">
+
+        <div class="confirmIcon">
+            <img src="Graphics/Logos/PortraitLogo.svg" alt="Pawfect Nibbles & Bites Logo">
+        </div>
+
+        <h1>Thank you for your order!</h1>
+
+        <p class="confirmMessage">
+          Your treats are being prepared with love and care.
+        </p>
+
+        <!-- JS FILLS THIS -->
+        <div class="orderCard">
+          <p>Loading your order details...</p>
+        </div>
+
+        <div class="treatNotes">
+            <ul class="pawBulletList">
+                <li>
+                    <img src="../Graphics/Pawprints/PurplePawprint.svg" class="pawIcon" alt="">
+                    <span>Store in a cool, dry place. Serve as a treat only, not a meal replacement.</span>
+                </li>
+
+                <li>
+                    <img src="../Graphics/Pawprints/PurplePawprint.svg" class="pawIcon" alt="">
+                    <span>Each order is baked in small batches to ensure freshness.</span>
+                </li>
+
+                <li>
+                    <img src="../Graphics/Pawprints/PurplePawprint.svg" class="pawIcon" alt="">
+                    <span>Orders are shipped within 1–3 business days. Shipping timeframe will then apply.</span>
+                </li>
+
+                <li>
+                    <img src="../Graphics/Pawprints/PurplePawprint.svg" class="pawIcon" alt="">
+                    <span>Learn more about our process and shipping <a href="PNB_About.html#orderProcess">here</a>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <a href="PNB_Shop.html" class="continueBtn">
+          Continue Shopping
+        </a>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+
+      <div class="divider footerWave"></div>
+
+      <div class="footerContent">
+
+        <div class="footerLeft">
+          <p>&copy; 2026 Pawfect Nibbles & Bites. All rights reserved.</p>
+        </div>
+
+        <div class="footerRight">
+          <div class="contactLinks">
+            <a href="PNB_Contact.html">Contact</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">X</a>
+          </div>
+
+          <a href="PNB_Index.html" class="footerLogo">
+            <img src="Graphics/Logos/PortraitLogo.svg" alt="Logo">
+          </a>
+        </div>
+
+      </div>
+
+    </footer>
+
+  </body>
+</html>

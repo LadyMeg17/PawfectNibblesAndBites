@@ -139,7 +139,7 @@ header {
   text-decoration: none;
 
   color: #39393A;
-  font-weight: 600;
+  font-weight: 600 ;
 
   transition: transform 0.2s ease, text-decoration 0.2s ease;
 }

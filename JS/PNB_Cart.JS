@@ -1,7 +1,6 @@
 "use strict";
 
 /*
-
     Pawfect Nibbles & Bites
     Internship Project
     
@@ -9,18 +8,31 @@
     Cart JS
 
     Author:  Meghan Wilkerson
-    Date:    2026-03-29
+    Date:    2026-03-28
 
     Filename: PNB_Cart.js
-
 */
 
-/* -----------------------
-   CART STORAGE
-   ----------------------- */
-
-// Load cart from localStorage or start empty
 let cart = [];
+let selectedShipping = "ground";
+
+/* -----------------------
+   SHIPPING COSTS
+----------------------- */
+
+const SHIPPING_RATES = {
+  ground: 7.50,
+  priority: 11.20
+};
+
+function getShippingCost() {
+  return SHIPPING_RATES[selectedShipping] || 7.50;
+}
+
+/* -----------------------
+   LOAD CART
+----------------------- */
+
 try {
   cart = JSON.parse(localStorage.getItem("cart")) || [];
   if (!Array.isArray(cart)) cart = [];
@@ -29,7 +41,6 @@ try {
   cart = [];
 }
 
-// Save cart to localStorage
 function saveCart() {
   try {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -41,6 +52,7 @@ function saveCart() {
 /* -----------------------
    CART COUNTER
 ----------------------- */
+
 function updateCartCounter() {
   const counterElems = document.querySelectorAll(".cartCount");
   const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -48,10 +60,97 @@ function updateCartCounter() {
 }
 
 /* -----------------------
-   RENDER SINGLE ITEM
+   CART TOTAL CALC
 ----------------------- */
+
+function getCartSubtotal() {
+  return cart.reduce((sum, item) => {
+    const treat = treatData[item.id];
+    const price = treat?.prices[item.size] || 0;
+    return sum + (price * item.quantity);
+  }, 0);
+}
+
+/* -----------------------
+   UPDATE TOTAL DISPLAY
+----------------------- */
+
+function updateCartTotal() {
+  const subtotalElem = document.getElementById("cartSubtotal");
+  const shippingElem = document.getElementById("cartShipping");
+  const totalElem = document.getElementById("cartTotal");
+
+  if (!subtotalElem || !shippingElem || !totalElem) return;
+
+  const subtotal = getCartSubtotal();
+  const shipping = getShippingCost();
+  const total = subtotal + shipping;
+
+  subtotalElem.textContent = `$${subtotal.toFixed(2)}`;
+  shippingElem.textContent = `$${shipping.toFixed(2)}`;
+  totalElem.textContent = `$${total.toFixed(2)}`;
+}
+
+/* -----------------------
+   CART TOAST
+----------------------- */
+
+function showCartToast(message, onComplete) {
+  const overlay = document.createElement("div");
+  overlay.className = "toastOverlay";
+
+  const toast = document.createElement("div");
+  toast.className = "cartToast";
+
+  const paw = document.createElement("img");
+  paw.src = "/Graphics/Pawprints/PurplePawprint.svg";
+  paw.alt = "paw";
+  paw.className = "toastPaw";
+
+  const text = document.createElement("div");
+  text.textContent = message;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.textContent = "✕";
+  closeBtn.className = "toastCloseBtn";
+
+  toast.appendChild(paw);
+  toast.appendChild(text);
+  toast.appendChild(closeBtn);
+  overlay.appendChild(toast);
+
+  document.body.appendChild(overlay);
+
+  setTimeout(() => overlay.classList.add("show"), 10);
+
+  let removed = false;
+
+  function closeToast() {
+    if (removed) return;
+    removed = true;
+
+    overlay.classList.remove("show");
+
+    setTimeout(() => {
+      overlay.remove();
+      if (typeof onComplete === "function") onComplete();
+    }, 300);
+  }
+
+  closeBtn.addEventListener("click", closeToast);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeToast();
+  });
+
+  setTimeout(closeToast, 2500);
+}
+
+/* -----------------------
+   RENDER ITEM
+----------------------- */
+
 function renderCartItem(item) {
-  const treat = treatData[item.id]; // Lookup by ID
+  const treat = treatData[item.id];
   if (!treat) return;
 
   const price = treat.prices[item.size] || 0;
@@ -59,8 +158,10 @@ function renderCartItem(item) {
   const container = document.createElement("div");
   container.className = "cartItem";
 
-  // Use the first image in the array for the selected size, fallback if missing
-  const imgSrc = treat.images?.[item.size]?.[0] || "../Graphics/Treats/TreatPhotosComingSoon.png";
+  const imgSrc =
+    treat.images?.[item.size]?.[0] ||
+    treat.img ||
+    "../Graphics/Treats/TreatPhotosComingSoon.png";
 
   container.innerHTML = `
     <img src="${imgSrc}" alt="${item.name}" class="cartItemImg">
@@ -82,45 +183,19 @@ function renderCartItem(item) {
     <button class="removeItem">Remove</button>
   `;
 
-  // -------------------
-  // Size change
-  // -------------------
-  const sizeSelect = container.querySelector(".cartItemSize");
-  sizeSelect.addEventListener("change", (e) => {
+  container.querySelector(".cartItemSize").addEventListener("change", (e) => {
     item.size = e.target.value;
-
-    // Update price display
-    const newPrice = treat.prices[item.size] || 0;
-    container.querySelector(".itemPrice").textContent = `$${(newPrice * item.quantity).toFixed(2)}`;
-
-    // Update image for the selected size
-    const newImg = treat.images?.[item.size]?.[0] || "../Graphics/Treats/TreatPhotosComingSoon.png";
-    container.querySelector(".cartItemImg").src = newImg;
-
     updateCart();
   });
 
-  // -------------------
-  // Quantity change
-  // -------------------
-  const qtyInput = container.querySelector(".cartItemQty");
-  qtyInput.addEventListener("input", (e) => {
-    const newQty = parseInt(e.target.value, 10);
-    item.quantity = isNaN(newQty) || newQty < 1 ? 1 : newQty;
-
-    // Update price display immediately
-    const price = treat.prices[item.size] || 0;
-    container.querySelector(".itemPrice").textContent = `$${(price * item.quantity).toFixed(2)}`;
-
+  container.querySelector(".cartItemQty").addEventListener("input", (e) => {
+    const qty = parseInt(e.target.value, 10);
+    item.quantity = isNaN(qty) || qty < 1 ? 1 : qty;
     updateCart();
   });
 
-  // -------------------
-  // Remove item
-  // -------------------
-  const removeBtn = container.querySelector(".removeItem");
-  removeBtn.addEventListener("click", () => {
-    cart = cart.filter(cartItem => cartItem !== item);
+  container.querySelector(".removeItem").addEventListener("click", () => {
+    cart = cart.filter(c => c !== item);
     updateCart();
   });
 
@@ -128,8 +203,9 @@ function renderCartItem(item) {
 }
 
 /* -----------------------
-   RENDER ENTIRE CART
+   RENDER CART
 ----------------------- */
+
 function renderCart() {
   const container = document.getElementById("cartItemsContainer");
   if (!container) return;
@@ -144,8 +220,8 @@ function renderCart() {
   }
 
   cart.forEach(item => {
-    const itemElem = renderCartItem(item);
-    if (itemElem) container.appendChild(itemElem);
+    const el = renderCartItem(item);
+    if (el) container.appendChild(el);
   });
 
   updateCartTotal();
@@ -155,30 +231,163 @@ function renderCart() {
 /* -----------------------
    UPDATE CART
 ----------------------- */
+
 function updateCart() {
   saveCart();
   renderCart();
 }
 
 /* -----------------------
-   CART TOTAL
+   PAYPAL ITEMS
 ----------------------- */
-function updateCartTotal() {
-  const totalElem = document.getElementById("cartTotal");
-  if (!totalElem) return;
 
-  const total = cart.reduce((sum, item) => {
+function getPayPalItems() {
+  return cart.map(item => {
     const treat = treatData[item.id];
     const price = treat?.prices[item.size] || 0;
-    return sum + (price * item.quantity);
-  }, 0);
 
-  totalElem.textContent = `$${total.toFixed(2)}`;
+    return {
+      name: `${treat.name} (${item.size})`,
+      unit_amount: {
+        currency_code: "USD",
+        value: price.toFixed(2)
+      },
+      quantity: item.quantity.toString(),
+      category: "PHYSICAL_GOODS"
+    };
+  });
 }
 
 /* -----------------------
-   INITIALIZE
+   INIT
 ----------------------- */
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
+
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  const clearCartBtn = document.getElementById("clearCartBtn");
+  const paypalContainer = document.getElementById("paypal-button-container");
+
+  const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+  let paypalRendered = false;
+
+  /* SHIPPING */
+  shippingOptions.forEach(opt => {
+    opt.addEventListener("change", (e) => {
+      selectedShipping = e.target.value;
+      updateCartTotal();
+    });
+  });
+
+  /* CLEAR CART */
+  clearCartBtn?.addEventListener("click", () => {
+    if (!cart.length) return;
+    if (!confirm("Clear your cart?")) return;
+
+    cart = [];
+    saveCart();
+
+    renderCart();
+    updateCartTotal();
+    updateCartCounter();
+
+    paypalContainer.style.display = "none";
+    paypalContainer.innerHTML = "";
+
+    checkoutBtn.style.display = "block";
+    paypalRendered = false;
+  });
+
+  /* CHECKOUT */
+  checkoutBtn?.addEventListener("click", () => {
+
+    if (!cart.length) {
+      showCartToast("Your cart is empty. Please add some treats!");
+      return;
+    }
+
+    checkoutBtn.style.display = "none";
+
+    if (paypalRendered) return;
+    paypalRendered = true;
+
+    paypalContainer.style.display = "block";
+    paypalContainer.innerHTML = "";
+
+    paypal.Buttons({
+
+      createOrder: (data, actions) => {
+        const subtotal = getCartSubtotal();
+        const shipping = getShippingCost();
+        const total = subtotal + shipping;
+
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              currency_code: "USD",
+              value: total.toFixed(2),
+              breakdown: {
+                item_total: {
+                  currency_code: "USD",
+                  value: subtotal.toFixed(2)
+                },
+                shipping: {
+                  currency_code: "USD",
+                  value: shipping.toFixed(2)
+                }
+              }
+            },
+            items: getPayPalItems()
+          }]
+        });
+      },
+
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(details => {
+
+          showCartToast("Payment successful! Redirecting...", () => {
+
+            /* ORDER SNAPSHOT */
+            const orderSnapshot = {
+              items: cart,
+              subtotal: getCartSubtotal(),
+              shipping: getShippingCost(),
+              shippingType: selectedShipping,   // ✅ NEW ADDITION
+              total: getCartSubtotal() + getShippingCost(),
+              date: new Date().toISOString(),
+              orderId: "PNB-" + Math.floor(10000 + Math.random() * 90000)
+            };
+
+            sessionStorage.setItem("lastOrder", JSON.stringify(orderSnapshot));
+
+            cart = [];
+            saveCart();
+            renderCart();
+
+            paypalContainer.style.display = "none";
+            paypalContainer.innerHTML = "";
+
+            checkoutBtn.style.display = "block";
+            paypalRendered = false;
+
+            window.location.href = "../PNB_Confirmation.html";
+          });
+
+        });
+      },
+
+      onError: (err) => {
+        console.error(err);
+        showCartToast("PayPal error occurred.");
+
+        paypalContainer.style.display = "none";
+        paypalContainer.innerHTML = "";
+
+        checkoutBtn.style.display = "block";
+        paypalRendered = false;
+      }
+
+    }).render("#paypal-button-container");
+  });
 });
