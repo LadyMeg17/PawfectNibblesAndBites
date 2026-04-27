@@ -11,9 +11,7 @@
     Filename: PNB_ContactStyles.css
 */
 
-/* ====================
-   Contact Intro Styles
-   ==================== */
+/* Page Layout */
 
 section {
   width: 100%;
@@ -30,7 +28,6 @@ main > section:last-of-type {
   margin-bottom: 2rem; 
 }
 
-
 header + main {
   padding-top: 2rem; 
 }
@@ -40,6 +37,7 @@ main + footer {
 }
 
 /* Section Content */
+
 .sectionContent {
   display: block;        
   max-width: 1200px;
@@ -52,7 +50,8 @@ main + footer {
   backdrop-filter: saturate(110%) brightness(105%) blur(5px);
 }
 
-/* Contact Intro Flex Container */
+/* Contact Intro Layout */
+
 .contactIntroContent {
   display: flex;
   flex-wrap: wrap;
@@ -61,8 +60,8 @@ main + footer {
   gap: 2rem;
 }
 
-
 /* Contact Image */
+
 .contactImage {
   flex: 1 1 45%;
   min-width: 280px;
@@ -91,8 +90,8 @@ main + footer {
     0 0 0 1px rgba(160,139,193,0.2) inset;
 }
 
+/* Right Column */
 
-/* Right Column (Text + Pawprints) */
 .rightColumn {
   display: flex;
   flex-direction: column;
@@ -102,6 +101,8 @@ main + footer {
   min-width: 280px;
   gap: 1rem;
 }
+
+/* Contact Text */
 
 .contactText h2 {
   font-size: 2rem;
@@ -123,9 +124,7 @@ main + footer {
   color: #555;
 }
 
-/* ===================
-   Contact Form Styles
-   =================== */
+/* Contact Form Layout */
 
 .contactForm {
   display: flex;
@@ -149,15 +148,14 @@ main + footer {
   backdrop-filter: saturate(110%) brightness(105%) blur(5px);
 }
 
+/* Form Structure */
 
-/* Form Row */
 .contactForm .formRow {
   display: flex;
   width: 100%;
   gap: 1.5rem;
 }
 
-/* Form Groups */
 .contactForm .formGroup {
   display: flex;
   flex-direction: column;
@@ -167,6 +165,8 @@ main + footer {
 .contactForm .formGroup.fullWidth {
   width: 100%;
 }
+
+/* Form Headings */
 
 .contactForm .sectionContent h2,
 .faqSection .sectionContent h2 {
@@ -181,7 +181,8 @@ main + footer {
   color: #39393A;
 }
 
-/* Labels */
+/* Form Labels */
+
 .contactForm label {
   display: flex;
   align-items: flex-start;
@@ -204,8 +205,8 @@ main + footer {
   height: auto;
 }
 
+/* Inputs */
 
-/* Inputs and Textarea */
 .contactForm input[type="text"],
 .contactForm input[type="email"],
 .contactForm textarea {
@@ -226,7 +227,8 @@ main + footer {
   resize: vertical;
 }
 
-/* Focus styles */
+/* Focus States */
+
 .contactForm input:focus,
 .contactForm textarea:focus {
   outline: none;
@@ -234,7 +236,8 @@ main + footer {
   box-shadow: 0 0 0 3px rgba(31,165,154,0.2), inset 0 1px 4px rgba(31,165,154,0.1);
 }
 
-/* Validation Styles */
+/* Validation */
+
 .contactForm input.touched:invalid,
 .contactForm textarea.touched:invalid {
   border-color: #E8A3A3;
@@ -246,10 +249,7 @@ main + footer {
   box-shadow: 0 0 4px #E8A3A3, 0 0 0 3px rgba(31,165,154,0.1);
 }
 
-
-/* ====================
-   Contact Form Buttons
-   ==================== */
+/* Buttons */
 
 .buttonGroup {
   display: flex;
@@ -278,6 +278,7 @@ main + footer {
 }
 
 /* Reset Button */
+
 .resetBtn {
   background-color: #a08bc1;
   color: #fff;
@@ -306,6 +307,7 @@ main + footer {
 }
 
 /* Submit Button */
+
 .submitBtn {
   background-color: #1fa59a;
   color: #fff;
@@ -333,10 +335,7 @@ main + footer {
   transform: rotate(25deg) translateX(100%);
 }
 
-
-/* =====================
-   Watermark Logo Styles
-   ===================== */
+/* Watermark Logo */
 
 .buttonGroupWrapper {
   position: relative;
@@ -350,9 +349,7 @@ main + footer {
   opacity: 0.5;
 }
 
-/* ==========
-   FAQ Styles 
-   ========== */
+/* FAQ Section */
 
 .faqSection .sectionContent h3 {
   font-size: 1.1rem;
@@ -381,9 +378,7 @@ main + footer {
   margin: 0.5rem 0 0;
 }
 
-/* ==============
-   Pawprint Trail 
-   ============== */
+/* Paw Trail */
 
 .pawTrail {
   display: flex;
@@ -399,11 +394,8 @@ main + footer {
   transition: transform 0.3s ease;
 }
 
-/* ============================
-  Responsive/Mobile Adjustments
-  ============================= */
+/* Responsive */
 
-/* Contact Form */
 @media (max-width: 600px) {
   .contactForm .formRow {
     flex-direction: column;
