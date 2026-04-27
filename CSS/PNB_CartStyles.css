@@ -11,7 +11,11 @@
   Filename: PNB_CartStyles.css
 */
 
-/* Cart Page Header */
+/* ======
+   Layout
+   ======*/
+
+/* --- Layout: Cart Header --- */
 
 .cartPage header {
     max-height: 200px;
@@ -19,7 +23,7 @@
     flex-direction: column;
 }
 
-/* Cart Intro */
+/* --- Layout: Cart Intro --- */
 
 .cartIntro {
     margin-bottom: 2rem;
@@ -38,10 +42,9 @@
     line-height: 1.5;
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
 }
 
-/* Cart Wrapper */
+/* --- Layout: Cart Wrapper --- */
 
 #cartContent {
     display: flex;
@@ -69,7 +72,7 @@
     gap: 2rem;
 }
 
-/* Cart Items */
+/* --- Layout: Cart Container --- */
 
 #cartItemsContainer {
     flex: 1;
@@ -100,7 +103,7 @@
     border-radius: 12px;
 }
 
-/* Cart Item */
+/* --- Layout: Cart Items --- */
 
 .cartItem {
     display: grid;
@@ -169,7 +172,7 @@
     margin-left: 0.25rem;
 }
 
-/* Shipping */
+/* --- Layout: Shipping Section --- */
 
 .shippingSection {
     width: 100%;
@@ -207,7 +210,7 @@
     accent-color: #1fa59a;
 }
 
-/* Cart Total */
+/* --- Layout: Cart Total --- */
 
 .cartTotalSection {
     width: 100%;
@@ -242,7 +245,7 @@
     color: #555;
 }
 
-/* Cart Actions */
+/* --- Actions --- */
 
 .cartActionsWrapper {
     width: 100%;
@@ -265,7 +268,9 @@
     max-width: 240px;
 }
 
-/* Buttons */
+/* =======
+   Buttons
+   ======= */
 
 .checkoutBtn,
 .clearCartBtn {
@@ -311,23 +316,27 @@
     color: white;
 }
 
-/* PayPal */
+/* --- PayPal --- */
 
 #paypal-button-container {
     display: flex;
     justify-content: center;
 }
 
-/* Toast */
+/* =====
+   Toast
+   ===== */
 
 .toastOverlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.35);
     backdrop-filter: blur(6px);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -343,11 +352,14 @@
     background: rgba(255,255,255,0.95);
     padding: 1.25rem 1.75rem;
     border-radius: 16px;
+
     display: flex;
     gap: 0.75rem;
     align-items: center;
+
     font-weight: 600;
     color: #1fa59a;
+
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
@@ -361,6 +373,7 @@
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
+
     margin-left: auto;
     color: #555;
     transition: color 0.2s ease;
@@ -370,7 +383,9 @@
     color: #1fa59a;
 }
 
-/* Responsive */
+/* =================
+   Responsive Design
+   ================= */
 
 @media (max-width: 1150px) {
 

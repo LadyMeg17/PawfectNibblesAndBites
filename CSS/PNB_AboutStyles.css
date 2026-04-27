@@ -11,12 +11,15 @@
     Filename: PNB_AboutStyles.css
 */
 
-/* Jump To Buttons */
+/* ==================
+   Layout: Navigation
+   ================== */
 
+/* Jump Navigation */
 .jumpNavWrapper {
   position: relative;
   display: inline-block;
-  margin-right: 1rem; 
+  margin-right: 1rem;
 }
 
 .jumpNavBtn {
@@ -26,7 +29,7 @@
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
 
-  background-color: #A08BC1; 
+  background-color: #A08BC1;
   color: white;
 
   font-size: 1rem;
@@ -39,7 +42,7 @@
 }
 
 .jumpNavBtn:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
   font-weight: 700;
   box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }
@@ -63,16 +66,15 @@
 }
 
 /* Dropdown Menu */
-
 .jumpNavDropdown {
-  display: none; 
+  display: none;
   position: absolute;
-  top: 110%; 
+  top: 110%;
   left: 50%;
   transform: translateX(-50%);
-  
+
   min-width: 220px;
-  background: rgba(160, 139, 193, 0.95); 
+  background: rgba(160, 139, 193, 0.95);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   border-radius: 8px;
   overflow: hidden;
@@ -93,7 +95,6 @@
 
 .jumpNavDropdown a:hover {
   background: rgba(255,255,255,0.15);
-  color: white;
 }
 
 .jumpNavWrapper:hover .jumpNavDropdown {
@@ -101,19 +102,14 @@
   flex-direction: column;
 }
 
-/* Jump + Shop Wrapper */
-
+/* Jump + Shop Layout */
 .jumpShopWrapper {
   display: flex;
   gap: 0.5rem;
-  align-items: stretch; 
+  align-items: stretch;
 }
 
-.jumpNavWrapper {
-  flex: 1 1 auto;
-  display: flex;
-}
-
+.jumpNavWrapper,
 .shopWrapper {
   flex: 1 1 auto;
   display: flex;
@@ -124,13 +120,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
+
   flex: 1;
   text-align: center;
   box-sizing: border-box;
 }
 
-/* Section Backgrounds */
+/* ================
+   Layout: Sections
+   ================ */
 
 section {
   width: 100%;
@@ -139,35 +137,16 @@ section {
   text-align: center;
 }
 
-.aboutStory {
-  background-color: #b8a8d1;
-}
+/* Section Background Themes */
+.aboutStory { background-color: #b8a8d1; }
+.treatPhilosophy { background-color: #57bbb3; }
+.treatTasters { background-color: #f7e1c6; }
+.behindTheScenes { background-color: #d3c6e8; }
+.bloopersSection { background-color: #f7e1c6; }
+.orderProcess { background-color: #57bbb3; }
+.aboutClosing { background-color: #b8a8d1; }
 
-.treatPhilosophy {
-  background-color: #57bbb3; 
-}
-
-.treatTasters {
-  background-color: #f7e1c6; 
-}
-
-.behindTheScenes {
-  background-color: #d3c6e8; 
-}
-
-.bloopersSection {
-  background-color: #f7e1c6; 
-}
-
-.orderProcess {
-  background-color: #57bbb3; 
-}
-
-.aboutClosing {
-  background-color: #b8a8d1;
-}
-
-/* Divider Waves */
+/* Decorative Dividers */
 
 .divider {
   width: 100%;
@@ -183,7 +162,9 @@ section {
 .wave5 { background-image: url('../graphics/Backgrounds/Wave5.svg'); }
 .wave6 { background-image: url('../graphics/Backgrounds/Wave6.svg'); }
 
-/* Typography Colors */
+/* ==========
+   Typography
+   ========== */
 
 .aboutStory h2,
 .behindTheScenes h2,
@@ -197,7 +178,7 @@ section {
 .treatPhilosophy h2,
 .orderProcess h2 {
   font-size: 1.5rem;
-  color: #39393A ;
+  color: #39393A;
   text-decoration: underline;
   padding-bottom: 1rem;
 }
@@ -222,21 +203,22 @@ figcaption {
   line-height: 1.35;
 }
 
-/* Content Styles */
+/* Content Containers */
 
 .sectionContent {
   display: inline-block;
   max-width: 1200px;
   padding: 1.5rem 2rem;
   border-radius: 16px;
-  
+
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   backdrop-filter: saturate(110%) brightness(105%);
 }
 
-
-/* Gallery Styles */
+/* ===============
+   Gallery Layouts
+   =============== */
 
 .tasterGrid,
 .btsGallery,
@@ -266,15 +248,14 @@ figcaption {
 .btsPhoto img,
 .bloopPhoto img {
   width: 100%;
-  height: auto;
-  margin-bottom: 1.25rem;
   border-radius: 12px;
+  margin-bottom: 1.25rem;
 
   box-shadow:
     0 0px 18px rgba(0, 0, 0, 0.18),
     0 0px 36px rgba(184, 168, 209, 0.65),
     0 0 0 1px rgba(184, 168, 209, 0.45);
-  
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -282,32 +263,28 @@ figcaption {
 .btsPhoto img:hover,
 .bloopPhoto img:hover {
   transform: scale(1.04);
-
-  box-shadow:
-    0 0px 30px rgba(0, 0, 0, 0.22),
-    0 0px 48px rgba(184, 168, 209, 0.75),
-    0 0 0 1px rgba(184, 168, 209, 0.55);
 }
 
+/* Captions */
 .tasterCard figcaption,
 .btsPhoto figcaption,
 .bloopPhoto figcaption {
   font-family: "Lato", sans-serif;
   font-size: 0.9rem;
   color: #39393A;
-  
+
   background: rgba(255, 255, 255, 0.8);
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
 }
 
-/* Back To Top Link */
+/* Back to Top */
 
 .backToTopWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;   
-  margin-bottom: 1rem;      
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .backToTop {
@@ -315,29 +292,28 @@ figcaption {
   font-weight: 650;
   font-size: 0.9rem;
 
-  color: #39393A;            
+  color: #39393A;
   text-decoration: none;
-
-  transition: color 0.2s ease, text-decoration 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .backToTop:hover {
   text-decoration: underline;
-  color: #A08BC1;            
+  color: #A08BC1;
   transform: scale(1.05);
 }
 
-/* SideNav Jump Groups */
+/* ===============
+   Side Navigation
+   =============== */
 
 .sideNav .linkGroup,
 .sideNav .sideJumpGroup {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   width: 100%;
-  margin-top: 2rem;  
-  box-sizing: border-box;
+  margin-top: 2rem;
 }
 
 .sideJumpGroup h3 {
@@ -346,51 +322,27 @@ figcaption {
   font-size: 1.2rem;
   color: #A08BC1;
   margin-bottom: 1rem;
-  text-align: center;
-  width: 100%;
 }
 
 .sideJumpGroup a {
   display: block;
-  width: 80%;           
-  max-width: 220px;     
-  text-align: center;    
-  padding: 0.5rem 0;   
+  width: 80%;
+  max-width: 220px;
+
+  text-align: center;
+  padding: 0.5rem 0;
+
   font-family: "Merriweather", serif;
   font-weight: 600;
   font-size: 1.1rem;
+
   color: #39393A;
   text-decoration: none;
-  margin-bottom: 0.25rem; 
 }
 
-.sideNav .shopWrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.sideNav .shopWrapper .shopBtn {
-  display: block;
-  width: 80%;        
-  max-width: 220px;  
-  margin: 0 auto;    
-  text-align: center;
-  padding: 0.5rem 0;
-}
-
-.sideNav .cartBtn {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  margin: 0.5rem auto;     
-  width: 50px;             
-  height: 50px;
-  position: relative;
-}
-
-/* Pawprint Trail */
+/* ===================
+   Decorative Elements
+   =================== */
 
 .pawTrail {
   display: flex;
@@ -402,11 +354,12 @@ figcaption {
 
 .pawprint {
   width: 20px;
-  height: auto;
   transition: transform 0.3s ease;
 }
 
-/* Responsive Adjustments */
+/* =================
+   Responsive Design
+   ================= */
 
 @media (max-width: 1200px) {
   .tasterCard,
@@ -433,29 +386,7 @@ figcaption {
 
 @media (max-width: 1100px) {
   .jumpShopWrapper {
-    flex-direction: column;  
+    flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .jumpNavWrapper {
-    order: 2; 
-  }
-
-  .shopBtn {
-    order: 1; 
-  }
-
-  .jumpNavWrapper,
-  .shopBtn {
-    width: 100%;  
-  }
-
-  .rightHead {
-    justify-content: flex-start;  
-    gap: 1rem;
-  }
-
-  .cartBtn {
-    margin-left: auto;  
   }
 }
