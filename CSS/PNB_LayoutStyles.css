@@ -15,7 +15,7 @@
    Global Styles
    ============= */
 
-/* --- Layout --- */
+/* Layout */
 
 html, body {
   height: 100%;
@@ -33,7 +33,7 @@ main {
 }
 
 
-/* --- Typography --- */
+/* Typography */
 
 html {
   font-family: "Lato", sans-serif;
@@ -91,7 +91,7 @@ header {
 }
 
 
-/* --- Left Head (Logo and Slogan) --- */
+/* Left Head (Logo and Slogan) */
 
 .leftHead {
   display: flex;
@@ -118,7 +118,7 @@ header {
 }
 
 
-/* --- Main Navigation --- */
+/* Main Navigation */
 
 .mainNav {
   display: flex; 
@@ -151,7 +151,7 @@ header {
   color: #A08BC1;  
 }
 
-/* --- Right Head (Shop and Cart Buttons) --- */
+/* Right Head */
 
 .rightHead {
   display: flex;
@@ -258,7 +258,7 @@ header {
   white-space: nowrap;   
 }
 
-/* --- Mobile Buttons (Hamburger and Cart) --- */
+/* Mobile Buttons */
 
 .mobileHambBtn,
 .mobileCartBtn {
@@ -484,9 +484,9 @@ footer {
   color: #A08BC1;
 }
 
-/* ============================
-  Responsive/Mobile Adjustments
-  ============================= */
+/* ======================
+   Responsive Adjustments
+   ====================== */
 
   
 @media (max-width: 1050px) {
@@ -502,7 +502,6 @@ footer {
     display: none;
   }
 
-  /* Hamburger Button */
   .mobileHambBtn {
     display: block;
 
@@ -514,7 +513,6 @@ footer {
     font-size: 2rem;
   }
 
-  /* Cart Button */
    .mobileCartBtn {
     display: inline-block;
     position: absolute;   
@@ -559,7 +557,6 @@ footer {
     white-space: nowrap;
   }
 
-  /* Logo and Slogan */
   .headerContent {
     display: flex;
     justify-content: center;
@@ -594,8 +591,6 @@ footer {
     font-size: 1rem;
     text-align: center;
   }
-
-  /* --- Footer --- */
 
   .footerLogo {
   display: none;
@@ -635,18 +630,15 @@ footer {
     margin-top: 1rem;
   }
 
-    /* Header Wave */
   .divider.headerWave {
     transform: translateY(45px); 
   }
 
-  /* Footer Wave */
   .divider.footerWave {
     transform: translateY(-15px);
   }
 }
 
-/* Header/Footer Waves for small screens (700px and below) */
 @media (max-width: 700px) {
 
 
@@ -655,20 +647,16 @@ footer {
   }
 
 
-  /* Header Wave */
   .divider.headerWave {
     transform: translateY(35px);  
   }
 
-  /* Footer Wave */
   .divider.footerWave {
     transform: translateY(10px);   
   }
 }
 
-/* Extra small screens (below 500px) */
 @media (max-width: 500px) {
-  /* Header */
   .headerContent {
     max-width: 100%;
     margin: 0;
@@ -684,14 +672,12 @@ footer {
     text-align: center;
   }
 
-  /* Header Wave */
   .divider.headerWave {
     transform: translateY(0);  
     width: 100%;
     left: 0;
   }
 
-  /* Footer */
  footer {
     min-height: auto;       
     display: block;        

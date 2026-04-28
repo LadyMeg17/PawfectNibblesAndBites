@@ -11,7 +11,10 @@
     Filename: PNB_ContactStyles.css
 */
 
-/* Page Layout */
+
+/*  ===========
+    Page Layout
+    =========== */
 
 section {
   width: 100%;
@@ -227,7 +230,6 @@ main + footer {
   resize: vertical;
 }
 
-/* Focus States */
 
 .contactForm input:focus,
 .contactForm textarea:focus {
@@ -249,7 +251,9 @@ main + footer {
   box-shadow: 0 0 4px #E8A3A3, 0 0 0 3px rgba(31,165,154,0.1);
 }
 
-/* Buttons */
+/* =======
+   Buttons
+   =======*/
 
 .buttonGroup {
   display: flex;
@@ -335,11 +339,11 @@ main + footer {
   transform: rotate(25deg) translateX(100%);
 }
 
-/* Watermark Logo */
-
 .buttonGroupWrapper {
   position: relative;
 }
+
+/* Watermark Logo */
 
 .formWatermarkLogo {
   position: absolute;
@@ -349,7 +353,9 @@ main + footer {
   opacity: 0.5;
 }
 
-/* FAQ Section */
+/* ===========
+   FAQ Section
+   ===========*/
 
 .faqSection .sectionContent h3 {
   font-size: 1.1rem;
@@ -378,7 +384,9 @@ main + footer {
   margin: 0.5rem 0 0;
 }
 
-/* Paw Trail */
+/* =========
+   Paw Trail  
+   =========*/
 
 .pawTrail {
   display: flex;
@@ -394,7 +402,9 @@ main + footer {
   transition: transform 0.3s ease;
 }
 
-/* Responsive */
+/* ======================
+   Responsive Adjustments
+   ====================== */
 
 @media (max-width: 600px) {
   .contactForm .formRow {

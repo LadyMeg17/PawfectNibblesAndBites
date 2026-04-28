@@ -15,16 +15,17 @@
 
 */
 
-/* ----------
-   TREAT PAGE
-   ----------- */
+/* ===================================
+   Global Variables and Initialization
+   =================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+
   const sizeSelect = document.getElementById("treatSize");
   const priceDisplay = document.getElementById("treatPrice");
   const quantityInput = document.getElementById("treatQuantity");
 
-  // Get current treat id from data attribute on h1
+  // Get current treat id from data attribute on header
   const treatHeader = document.querySelector(".treatPageHeader");
   const treatId = treatHeader.dataset.id;
 
@@ -36,81 +37,92 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  /* --------------------
-     UPDATE PRICE FUNCTION
-     -------------------- */
+  /* ===============
+     Price Functions
+     =============== */
+
   function updatePrice() {
     if (!sizeSelect || !priceDisplay) return;
+
     const selectedSize = sizeSelect.value;
     const price = treat.prices[selectedSize] || 0;
+
     priceDisplay.textContent = `$${price.toFixed(2)}`;
   }
 
-  /* ----------
-     INITIALIZE
-     ---------- */
+  /* ===============
+     Initialize Page
+     =============== */
+
   if (sizeSelect) {
     sizeSelect.innerHTML = treat.availableSizes
-      .map(
-        size => `<option value="${size}">${size.charAt(0).toUpperCase() + size.slice(1)}</option>`
+      .map(size =>
+        `<option value="${size}">
+          ${size.charAt(0).toUpperCase() + size.slice(1)}
+        </option>`
       )
       .join("");
   }
 
   updatePrice();
 
-  /* --------------
-     EVENT LISTENERS
-     -------------- */
+  /* ===============
+     Event Listeners
+     =============== */
+
   if (sizeSelect) {
     sizeSelect.addEventListener("change", updatePrice);
   }
 
-/* --------------------
-   TOAST FEEDBACK FUNCTION
-   -------------------- */
-function showToast(message) {
-  const toast = document.createElement("div");
-  toast.className = "toastMessage";
+  /* ==============
+     Toast Function
+     ============== */
 
-  // Create paw image
-  const pawImg = document.createElement("img");
-  pawImg.src = "/Graphics/Pawprints/PurplePawprint.svg"; // update path if needed
-  pawImg.alt = "paw";
-  pawImg.className = "toastPaw";
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toastMessage";
 
-  // Add paw and message to toast
-  toast.appendChild(pawImg);
-  const textNode = document.createTextNode(message);
-  toast.appendChild(textNode);
+    // Create paw icon
+    const pawImg = document.createElement("img");
+    pawImg.src = "/Graphics/Pawprints/PurplePawprint.svg";
+    pawImg.alt = "paw";
+    pawImg.className = "toastPaw";
 
-  document.body.appendChild(toast);
+    // Add content to toast
+    toast.appendChild(pawImg);
+    const textNode = document.createTextNode(message);
+    toast.appendChild(textNode);
 
-  // Trigger fade
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 10);
+    document.body.appendChild(toast);
 
-  // Remove toast after 3s
-  setTimeout(() => {
-    toast.style.opacity = 0;
-    setTimeout(() => toast.remove(), 500);
-  }, 3000);
-}
+    // Trigger fade-in
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 10);
 
-  /* --------------------
-     ADD TO CART FUNCTION
-     -------------------- */
+    // Remove toast after delay
+    setTimeout(() => {
+      toast.style.opacity = 0;
+      setTimeout(() => toast.remove(), 500);
+    }, 3000);
+  }
+
+  /* ===========
+     Add to Cart
+     =========== */
+
   const addBtn = document.getElementById("addToCartBtn");
+
   if (addBtn) {
     addBtn.addEventListener("click", () => {
+
       const selectedSize = sizeSelect.value;
       let quantity = parseInt(quantityInput.value, 10);
 
       // Validate quantity
       if (isNaN(quantity) || quantity < 1) quantity = 1;
 
-      // Pull the correct price from TreatData
+      // Get price from treatData
       const price = treat.prices[selectedSize];
       if (!price) {
         console.error(`Price not found for size "${selectedSize}"`);
@@ -127,7 +139,11 @@ function showToast(message) {
         img: treat.img
       };
 
-      // Get existing cart from localStorage
+      /* =============
+         Cart Handling
+         =============*/
+
+      // Retrieve existing cart
       let cart = [];
       try {
         cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -137,17 +153,18 @@ function showToast(message) {
         cart = [];
       }
 
-      // Check if the same item + size already exists, then increment quantity
+      // Check for existing item 
       const existingIndex = cart.findIndex(
         item => item.id === cartItem.id && item.size === cartItem.size
       );
+
       if (existingIndex > -1) {
         cart[existingIndex].quantity += quantity;
       } else {
         cart.push(cartItem);
       }
 
-      // Save updated cart to localStorage
+      // Save updated cart
       try {
         localStorage.setItem("cart", JSON.stringify(cart));
       } catch (e) {
@@ -156,14 +173,17 @@ function showToast(message) {
         return;
       }
 
-      // Update cart counter if the function exists
-      if (typeof updateCartCounter === "function") updateCartCounter();
+      // Update cart counter if available
+      if (typeof updateCartCounter === "function") {
+        updateCartCounter();
+      }
 
-      // Reset quantity to 1
+      // Reset quantity input
       quantityInput.value = 1;
 
-      // Show toast feedback
+      // Show confirmation toast
       showToast(`${cartItem.name} (${cartItem.size}) added to bag!`);
     });
   }
+
 });

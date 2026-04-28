@@ -116,9 +116,9 @@
   border-color: #39393a;
 }
 
-/* =========================
+/* =====================
    SideNav Filter Styles
-   ========================= */
+   ===================== */
 
 .sideFilterGroup {
   display: flex;
@@ -134,7 +134,7 @@
   margin-bottom: 0.25rem;
 }
 
-/* Rounded rectangle style like .shopBtn */
+
 .sideFilter {
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -150,7 +150,6 @@
   transition: all 0.25s ease;
 }
 
-/* Reset button matches rounded rectangle style */
 #sideResetFilters {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -163,8 +162,6 @@
   transition: all 0.25s ease;
 }
 
-
-/* Shop grid */
 .shopGrid {
   flex: 1;
   display: grid;
@@ -172,7 +169,6 @@
   gap: 1.5rem;
 }
 
-/* Treat card */
 .treatShopCard {
   display: none;
   flex-direction: column;

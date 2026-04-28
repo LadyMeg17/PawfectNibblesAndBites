@@ -15,9 +15,9 @@
 
 */
 
-/* ---------------
+/* ===============
    Treat Slideshow
-   --------------- */
+   =============== */
 
 document.addEventListener("DOMContentLoaded", function() {
   const slides = document.querySelectorAll(".treatPhotoGallery .fade");

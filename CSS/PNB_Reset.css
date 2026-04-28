@@ -15,7 +15,7 @@
    CSS Reset / Base Styles
    ======================= */
 
-/* --- Universal Reset --- */
+/* Universal Reset */
 *,
 *::before,
 *::after {
@@ -29,12 +29,12 @@
   list-style: none;
 }
 
-/* --- HTML Defaults --- */
+/*  HTML Defaults */
 html {
   scroll-behavior: smooth;
 }
 
-/* --- Structural Elements --- */
+/*  Structural Elements */
 body,
 article, aside, figcaption, figure, footer, header, main, nav, section {
   display: block;
@@ -42,14 +42,14 @@ article, aside, figcaption, figure, footer, header, main, nav, section {
   padding: 0;
 }
 
-/* --- Media Elements --- */
+/* Media Elements */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* --- Tables --- */
+/* Tables */
 table {
   border-collapse: collapse;
   border-spacing: 0;

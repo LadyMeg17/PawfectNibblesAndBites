@@ -14,9 +14,9 @@
 
 */
 
-/* ----------
-   TREAT DATA
-   ---------- */
+/* ==================
+   Treat Data Objects
+   ================== */
 
 const treatData = {
   appleOatitude: {

@@ -15,16 +15,20 @@
 
 */
 
-/* -------------------
-   INDEX SLIDESHOW JS
-   ------------------- */
+/* ========================
+   Initialization and Setup
+   ======================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const slides = document.querySelectorAll(".indexSlidesWrapper img");
   const captionBox = document.querySelector(".slideCaption");
 
-  // Captions array (matches slide order)
+  /* ==========
+     Slide Data
+     ==========*/
+
+  // Captions array 
   const captions = [
     "Nibbles Peanut Butter Pumpkin",
     "Banana Nutty Bites",
@@ -36,6 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlaying = true;
   let slideInterval = setInterval(nextSlide, 6000);
 
+  /* ===============
+     Slide Functions
+     =============== */
+
   function showSlide(n) {
     slides.forEach((slide, i) => {
       slide.classList.remove("active");
@@ -44,42 +52,52 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Update caption
+    // Update caption text
     captionBox.textContent = captions[n];
 
     currentSlide = n;
   }
 
+  // Next Slide
   function nextSlide() {
     showSlide((currentSlide + 1) % slides.length);
   }
 
+  // Previous Slide
   function prevSlide() {
     showSlide((currentSlide - 1 + slides.length) % slides.length);
   }
+
+  /* =================
+     Playback Controls
+     ================= */
 
   function togglePlayPause() {
     const btn = document.querySelector(".playPause");
 
     if (isPlaying) {
       clearInterval(slideInterval);
-      btn.innerHTML = "&#9658;"; // play ▶
+      btn.innerHTML = "&#9658;"; 
     } else {
       slideInterval = setInterval(nextSlide, 5000);
-      btn.innerHTML = "&#10073;&#10073;"; // pause ❚❚
+      btn.innerHTML = "&#10073;&#10073;"
     }
 
     isPlaying = !isPlaying;
   }
 
-  // Buttons
+  /* ===============
+     Event Listeners
+     =============== */
+
   document.querySelector(".nextSlide").addEventListener("click", nextSlide);
   document.querySelector(".prevSlide").addEventListener("click", prevSlide);
   document.querySelector(".playPause").addEventListener("click", togglePlayPause);
 
-  // Optional: click slideshow to pause/play
-  document.querySelector(".indexSlidesWrapper").addEventListener("click", togglePlayPause);
+  // Toggles
+  document.querySelector(".indexSlidesWrapper")
+    .addEventListener("click", togglePlayPause);
 
-  // Init
+  // Initialize
   showSlide(currentSlide);
 });

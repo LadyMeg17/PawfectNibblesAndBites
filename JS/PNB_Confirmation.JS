@@ -12,7 +12,12 @@
     Filename: PNB_Confirmation.js
 */
 
+/* ==================================
+   Initialization and Data Retrieval
+   ================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const orderData = JSON.parse(sessionStorage.getItem("lastOrder"));
   const container = document.querySelector(".orderCard");
 
@@ -23,11 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  /* ===============
+     Date Formatting
+     =============== */
+
   const date = orderData.date
     ? new Date(orderData.date).toLocaleString()
     : "Unknown date";
 
+  /* ==================
+     Render Order Items
+     ================== */
+
   const itemsHTML = (orderData.items || []).map(item => {
+
     const treat = treatData?.[item.id];
 
     const name = treat?.name || "Unknown item";
@@ -57,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }).join("");
 
-  /* =========================
-     SHIPPING LABEL LOGIC (FIXED)
-  ========================= */
+  /* ==============
+     Shipping Label
+     ============== */
 
   const shippingType = (orderData.shippingType || "").toLowerCase();
 
@@ -70,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (shippingType === "ground") {
     shippingLabel = "Ground Advantage (5–7 business days)";
   }
+
+  /* ====================
+     Render Order Summary
+     ==================== */
 
   container.innerHTML = `
     <h3>Order Summary</h3>

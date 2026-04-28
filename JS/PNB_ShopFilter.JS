@@ -15,16 +15,16 @@
 
 */
 
-/* -------------------
-   ESTABLISH VARIABLES
-   ------------------- */
+ /* ================
+    Global Variables
+    ================ */
 
 let activeSize = "";
 let activeIngredient = "";
 
-/* ---------------
-   FILTER FUNCTION
-   --------------- */
+/*  ===============
+    Filter Function
+    =============== */
 
 function filterCards() {
   const cards = document.querySelectorAll(".treatShopCard");
@@ -43,9 +43,9 @@ function filterCards() {
   });
 }
 
-/* ---------------
-   EVENT LISTENERS
-   --------------- */
+/*  ===============
+    Event Listeners
+    =============== */
    
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
@@ -65,9 +65,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   filterCards();
 
-  /* ------------
-     SIZE BUTTONS
-     ------------ */
+  /* ============
+     Size Buttons
+     ============ */
 
   const sizeBtns = document.querySelectorAll("#sizeBtnContainer .btn");
   sizeBtns.forEach(btn => {
@@ -81,9 +81,9 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ------------------
-     INGREDIENT BUTTONS
-     ------------------ */
+  /* ==================
+     Ingredient Buttons
+     ================== */
 
   const ingredientBtns = document.querySelectorAll("#ingredientBtnContainer .btn");
   ingredientBtns.forEach(btn => {
@@ -97,9 +97,9 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ------------
-     RESET BUTTON
-     ------------ */
+  /* ============
+     Reset Button
+     ============ */
 
   const resetBtn = document.querySelector("#resetFiltersContainer .btn");
   if (resetBtn) {
@@ -119,11 +119,10 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ------------
-     SIDENAV FILTERS
-     ------------ */
+    /* ===============
+       Side Nav Filter
+       =============== */
 
-  // Mobile selects
   const sizeSelect = document.querySelector("#sizeSelect");
   const ingredientSelect = document.querySelector("#ingredientSelect");
   const sideResetBtn = document.querySelector("#sideResetFilters");

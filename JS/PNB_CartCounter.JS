@@ -15,9 +15,9 @@
 
 */
 
-/* ------------
-   Cart Counter
-   ------------ */
+/* =====================
+   Cart Counter Function
+   ===================== */
 
 function updateCartCounter() {
   const countElems = document.querySelectorAll(".cartCount");

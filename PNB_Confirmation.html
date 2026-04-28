@@ -41,29 +41,33 @@
 
   <body>
 
-    <!-- HEADER -->
+    <!-- Header with slogan, mainNav, and shopping button/cart -->
     <header id="header">
 
       <div class="headerContent">
 
+        <!-- Mobile Hamburger Button -->
         <span class="mobileHambBtn" onclick="openNav()">&#9776;</span>
 
+        <!-- Logo & Slogan -->
         <div class="leftHead">
           <a href="PNB_Index.html" class="logoLink">
             <img src="Graphics/Logos/LandscapeLogo2.svg"
-                 alt="Pawfect Nibbles & Bites"
-                 class="logo">
+                alt="Pawfect Nibbles & Bites"
+                class="logo">
           </a>
           <div class="slogan">
             <h2>Wholesome Treats for Chewsy Paws.</h2>
           </div>
         </div>
 
+        <!-- Mobile Cart Button -->
         <a href="PNB_Cart.html" class="mobileCartBtn cartBtn">
-          <img src="Graphics/ShoppingBag.svg" alt="Cart">
+          <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
           <span class="cartCount">0</span>
         </a>
 
+        <!-- Main Navigation -->
         <nav class="mainNav">
           <ul>
             <li><a href="PNB_Index.html">Home</a></li>
@@ -72,6 +76,7 @@
           </ul>
         </nav>
 
+        <!-- Shop and Cart Buttons -->
         <div class="rightHead">
           <div class="shopWrapper">
             <a href="PNB_Shop.html" class="shopBtn">
@@ -80,7 +85,7 @@
           </div>
 
           <a href="PNB_Cart.html" class="cartBtn">
-            <img src="Graphics/ShoppingBag.svg" alt="Cart">
+            <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
             <span class="cartCount">0</span>
           </a>
         </div>
@@ -91,33 +96,38 @@
 
     </header>
 
-    <!-- SIDE NAV -->
-    <div id="sideNav" class="sideNav">        
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- Side Navigation for Small Screens -->
+      <div id="sideNav" class="sideNav">        
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-      <div class="linkGroup">
+        <div class="linkGroup">
 
-        <div class="cartWrapper">
-          <a href="PNB_Cart.html" class="cartBtn">
-            <img src="Graphics/ShoppingBag.svg" alt="Cart">
-            <span class="cartCount">0</span>
-          </a>
+          <!-- Cart -->
+          <div class="cartWrapper">
+            <a href="PNB_Cart.html" class="cartBtn">
+              <img src="Graphics/ShoppingBag.svg" alt="Shopping Cart">
+              <span class="cartCount">0</span>
+            </a>
+          </div>
+
+          <!-- Main links -->
+          <div class="navWrapper">
+            <a href="PNB_Index.html">Home</a>
+            <a href="PNB_About.html">About</a>
+            <a href="PNB_Contact.html">Contact</a>
+          </div>
+
+          <!-- Shop Button -->
+          <div class="shopWrapper">
+            <a href="PNB_Shop.html" class="shopBtn">Shop Treats</a>
+          </div> 
+
+         </div>
         </div>
-
-        <div class="navWrapper">
-          <a href="PNB_Index.html">Home</a>
-          <a href="PNB_About.html">About</a>
-          <a href="PNB_Contact.html">Contact</a>
-        </div>
-
-        <div class="shopWrapper">
-          <a href="PNB_Shop.html" class="shopBtn">Shop Treats</a>
-        </div> 
-
       </div>
-    </div>
 
-    <!-- MAIN CONTENT -->
+     
+  <!-- Main Content -->      
     <main>
 
       <section class="confirmWrapper">
@@ -132,7 +142,8 @@
           Your treats are being prepared with love and care.
         </p>
 
-        <!-- JS FILLS THIS -->
+        <!-- JS will populate this section -->
+
         <div class="orderCard">
           <p>Loading your order details...</p>
         </div>
@@ -169,7 +180,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer id="footer">
 
       <div class="divider footerWave"></div>

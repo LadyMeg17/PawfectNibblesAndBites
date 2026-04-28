@@ -11,7 +11,9 @@
   Filename: PNB_ConfirmationStyles.css
 */
 
-/* PAGE LAYOUT */
+/*  ===========
+    Page Layout
+    =========== */
 
 html, body {
   height: 100%;
@@ -42,9 +44,9 @@ main {
   display: inline-block;
 }
 
-/* =========================
-   MAIN WRAPPER CARD
-========================= */
+/* ============
+   Main Wrapper
+   ============ */
 
 .confirmWrapper {
   width: 100%;
@@ -64,9 +66,9 @@ main {
   font-family: "Lato", sans-serif;
 }
 
-/* =========================
-   ICON + TEXT
-========================= */
+/* =====
+   Image
+   ===== */
 
 .confirmIcon img {
   width: 250px;
@@ -97,9 +99,9 @@ main {
   }
 }
 
-/* =========================
-   TEXT
-========================= */
+/* ==========
+   Typography
+   ========== */
 
 .confirmWrapper h1 {
   font-family: "Playfair Display", serif;
@@ -114,9 +116,9 @@ main {
   margin-bottom: 2rem;
 }
 
-/* =========================
-   ORDER CARD
-========================= */
+/* ==========
+   Order Card
+   =========== */
 
 .orderCard {
   background: #f9f9f9;
@@ -143,9 +145,6 @@ main {
   margin: 1rem 0;
 }
 
-/* =========================
-   ORDER ITEM ROWS
-========================= */
 
 .confirmItem {
   display: flex;
@@ -163,7 +162,6 @@ main {
   border-bottom: none;
 }
 
-/* LEFT */
 .confirmItemLeft {
   flex: 0 0 auto;
 }
@@ -178,7 +176,6 @@ main {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* CENTER */
 .confirmItemCenter {
   flex: 1;
   padding: 0 0.5rem;
@@ -189,16 +186,13 @@ main {
   font-weight: 500;
 }
 
-/* RIGHT */
 .confirmItemRight {
   flex: 0 0 auto;
   font-weight: 600;
   color: #1fa59a;
 }
 
-/* =========================
-   TOTALS
-========================= */
+/* Totals */
 
 .confirmTotals {
   margin-top: 1rem;
@@ -225,9 +219,9 @@ main {
   font-size: 1.1rem;
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* =======
+   Buttons
+   =======*/
 
 .continueBtn {
   position: relative;
@@ -278,9 +272,9 @@ main {
   transform: rotate(25deg) translateX(100%);
 }
 
-/* =========================
-   PAW BULLET LIST (FIXED)
-========================= */
+/* ===============
+   Paw Bullet List
+   =============== */
 
 .pawBulletList {
   list-style: none;
@@ -322,11 +316,10 @@ main {
   color: #a08bc1;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ======================
+   Responsive Adjustments
+   ====================== */
 
-/* TABLET: GRID LAYOUT */
 @media (max-width: 600px) and (min-width: 461px) {
 
   .confirmItem {
@@ -352,7 +345,6 @@ main {
   }
 }
 
-/* MOBILE: STACKED LAYOUT */
 @media (max-width: 460px) {
 
   .confirmItem {

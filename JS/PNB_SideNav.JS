@@ -15,18 +15,19 @@
 
 */
 
-/* ---------------------
-   OPEN SIDEBAR FUNCTION
-   --------------------- */
+/* ====================
+  Open Sidebar Function
+  ===================== */
 
 function openNav() {
   document.getElementById("sideNav").style.width = "250px";
   document.body.classList.add("sideNavOpen");
 }
 
-/* ----------------------
-   CLOSE SIDEBAR FUNCTION
-   ---------------------- */
+/* =====================
+  Close Sidebar Function
+  ====================== */
+
 function closeNav() {
   document.getElementById("sideNav").style.width = "0";
   document.body.classList.remove("sideNavOpen"); 

@@ -15,9 +15,10 @@
 
 */
 
-/* -------------------
-   ESTABLISH VARIABLES
-   ------------------- */
+/* ==================================
+   Global Variables and Initialization
+   ================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.getElementById("name");
   const petSizeInput = document.getElementById("petSize");
@@ -27,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!submitBtn) return;
 
-  /* -----------------
-   Touched Adjustments
-   ------------------- */
+/* =======
+   Touched
+   ======= */
 
   const fields = [nameInput, petSizeInput, subjectInput, messageInput];
  
@@ -39,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ------------------------
-     FORM VALIDATION FUNCTION
-     ------------------------ */
+/* ===================
+   Validation Function
+   =================== */
 
   function validateForm() {
     // Reset previous messages
@@ -81,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
   return true;
 }
 
-  /* ---------------
-     FORM SUBMISSION
-     --------------- */
+  /* ===============
+     Form Submission
+     =============== */
   submitBtn.addEventListener("click", function(event) {
     event.preventDefault(); 
 

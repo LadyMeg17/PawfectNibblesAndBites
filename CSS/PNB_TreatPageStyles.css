@@ -28,9 +28,7 @@
   color: #39393A;
 }
 
-/* ===========
-   Page Header
-   =========== */
+/*  Header */
 
 .treatPageHeader {
   display: inline-block;
@@ -84,9 +82,7 @@
   flex: 1;
 }
 
-/* =============
-   Photo Gallery
-   ============= */
+/* Photo Gallery */
 
 .treatPhotoGallery {
   width: 100%;
@@ -148,9 +144,7 @@
   to { opacity: 1; }
 }
 
-/* ===================
-   Left Column Content
-   =================== */
+/* Left Column */
 
 .treatNutrition,
 .treatIngredients,
@@ -241,9 +235,7 @@ details[open] .summaryArrow {
   transition: transform 0.3s ease;
 }
 
-/* ====================
-   Right Column Content
-   ==================== */
+/*  Right Column */
 
 .treatDescription h2 {
   font-family: "Merriweather", serif;
@@ -374,9 +366,10 @@ details[open] .summaryArrow {
   color: #a08bc1;
 }
 
-/* --------------
-   Toast Feedback
-   -------------- */
+/* =====
+   Toast
+   ===== */
+
 .toastMessage {
   position: fixed;
   bottom: 25px;
@@ -441,7 +434,7 @@ details[open] .summaryArrow {
 @media (max-width: 500px) {
   .treatPageHeader {
     font-size: 1.75rem;
-    padding: 0.35em 1.25em;
+    padding: 0.35em 1.25em; 
     margin: 2rem auto 1rem;
     border-radius: 45% / 45%;
   }

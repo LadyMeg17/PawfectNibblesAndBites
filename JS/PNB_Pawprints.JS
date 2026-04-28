@@ -15,9 +15,9 @@
 
 */
 
-/* -------------------
-   ESTABLISH VARIABLES
-   ------------------- */
+ /* ===================================
+    Global Variables and Initialization
+    =================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const pawTrails = document.querySelectorAll('.pawTrail');
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Store original pawprints
     const originalPaws = Array.from(pawTrail.querySelectorAll('.pawprint')).map(p => p.cloneNode(true));
 
-    /* -----------------
-       PAWTRAIL FUNCTION
-       ----------------- */
+     /* ==================
+        Paw Trail Function
+        ================== */
     
     function updatePawTrail() {
       const containerWidth = pawTrail.clientWidth;

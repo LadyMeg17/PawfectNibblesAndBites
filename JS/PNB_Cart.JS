@@ -13,25 +13,29 @@
     Filename: PNB_Cart.js
 */
 
+/* ================
+   Global Variables
+   ================ */
+
 let cart = [];
 let selectedShipping = "ground";
-
-/* -----------------------
-   SHIPPING COSTS
------------------------ */
 
 const SHIPPING_RATES = {
   ground: 7.50,
   priority: 11.20
 };
 
+/* =================
+   Shipping Function
+   ================= */
+
 function getShippingCost() {
   return SHIPPING_RATES[selectedShipping] || 7.50;
 }
 
-/* -----------------------
-   LOAD CART
------------------------ */
+/* ==============
+   Cart Functions
+   ============== */
 
 try {
   cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -49,9 +53,9 @@ function saveCart() {
   }
 }
 
-/* -----------------------
-   CART COUNTER
------------------------ */
+/* =====================
+   Cart Counter Function
+   ===================== */
 
 function updateCartCounter() {
   const counterElems = document.querySelectorAll(".cartCount");
@@ -59,9 +63,9 @@ function updateCartCounter() {
   counterElems.forEach(el => el.textContent = totalCount);
 }
 
-/* -----------------------
-   CART TOTAL CALC
------------------------ */
+/* =====================
+   Cart Subtotal Function
+   ===================== */
 
 function getCartSubtotal() {
   return cart.reduce((sum, item) => {
@@ -71,9 +75,9 @@ function getCartSubtotal() {
   }, 0);
 }
 
-/* -----------------------
-   UPDATE TOTAL DISPLAY
------------------------ */
+/* ==========================
+   Update Cart Total Function
+   ========================== */
 
 function updateCartTotal() {
   const subtotalElem = document.getElementById("cartSubtotal");
@@ -91,9 +95,9 @@ function updateCartTotal() {
   totalElem.textContent = `$${total.toFixed(2)}`;
 }
 
-/* -----------------------
-   CART TOAST
------------------------ */
+/* =====
+   TOAST
+   ===== */
 
 function showCartToast(message, onComplete) {
   const overlay = document.createElement("div");
@@ -145,9 +149,9 @@ function showCartToast(message, onComplete) {
   setTimeout(closeToast, 2500);
 }
 
-/* -----------------------
-   RENDER ITEM
------------------------ */
+/* =========================
+   Render Cart Item Function
+   ========================= */
 
 function renderCartItem(item) {
   const treat = treatData[item.id];
@@ -202,9 +206,9 @@ function renderCartItem(item) {
   return container;
 }
 
-/* -----------------------
-   RENDER CART
------------------------ */
+/* ====================
+   Render Cart Function
+   ==================== */
 
 function renderCart() {
   const container = document.getElementById("cartItemsContainer");
@@ -228,18 +232,18 @@ function renderCart() {
   updateCartCounter();
 }
 
-/* -----------------------
-   UPDATE CART
------------------------ */
+/* ====================
+   Update Cart Function
+   ==================== */
 
 function updateCart() {
   saveCart();
   renderCart();
 }
 
-/* -----------------------
-   PAYPAL ITEMS
------------------------ */
+/* ==========================
+   Get PayPal Items Function
+   ========================== */
 
 function getPayPalItems() {
   return cart.map(item => {
@@ -258,9 +262,9 @@ function getPayPalItems() {
   });
 }
 
-/* -----------------------
-   INIT
------------------------ */
+/* ==================================
+   Initialization and Event Listeners
+   ================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
@@ -272,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const shippingOptions = document.querySelectorAll('input[name="shipping"]');
   let paypalRendered = false;
 
-  /* SHIPPING */
+  // Shipping 
   shippingOptions.forEach(opt => {
     opt.addEventListener("change", (e) => {
       selectedShipping = e.target.value;
@@ -280,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* CLEAR CART */
+  // Clear Cart
   clearCartBtn?.addEventListener("click", () => {
     if (!cart.length) return;
     if (!confirm("Clear your cart?")) return;
@@ -299,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     paypalRendered = false;
   });
 
-  /* CHECKOUT */
+  // Checkout
   checkoutBtn?.addEventListener("click", () => {
 
     if (!cart.length) {
@@ -348,12 +352,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           showCartToast("Payment successful! Redirecting...", () => {
 
-            /* ORDER SNAPSHOT */
+            // Snapshot
             const orderSnapshot = {
               items: cart,
               subtotal: getCartSubtotal(),
               shipping: getShippingCost(),
-              shippingType: selectedShipping,   // ✅ NEW ADDITION
+              shippingType: selectedShipping,   
               total: getCartSubtotal() + getShippingCost(),
               date: new Date().toISOString(),
               orderId: "PNB-" + Math.floor(10000 + Math.random() * 90000)

@@ -312,10 +312,8 @@
 
 /* ======================
    Responsive Adjustments
-   ======================
-*/
+   ====================== */
 
-/* --- Medium/Large Screens --- */
 @media (max-width: 1060px) {
   .treatCard {
     flex: 1 1 calc(50% - 2rem);
@@ -329,7 +327,6 @@
   } 
 }
 
-/* --- Medium Screens --- */
 @media (max-width: 1024px) {
   .indexSlideshow img {
     max-height: 400px;
@@ -369,7 +366,6 @@
   }
 }
 
-/* --- Small Screens --- */
 @media (max-width: 815px) {
   .intro {
     flex-direction: column;
@@ -452,7 +448,6 @@
   }
 }
 
-/* --- Extra Small Screens (Mobile) --- */
 
 @media (max-width: 525px) {
   .divider.pillarWaveTop {
