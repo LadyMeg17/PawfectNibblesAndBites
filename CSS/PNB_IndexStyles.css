@@ -186,13 +186,13 @@
 .divider.pillarWaveTop {
   background-image: url('../Graphics/Backgrounds/FooterWave.svg');
   background-position: bottom center; 
-  transform: translateY(-35px);
+  margin-top: -35px;
 }
 
 .divider.pillarWaveBottom {
   background-image: url('../Graphics/Backgrounds/HeaderWave.svg');
   background-position: top center; 
-  transform: translateY(35px); 
+  margin-bottom: -35px;
 }
 
 .pillarBannerContainer {
