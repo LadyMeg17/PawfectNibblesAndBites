@@ -350,7 +350,7 @@ details[open] .summaryArrow {
   content: "";
   width: 1.15rem;
   height: 1.15rem;
-  background-image: url("/Graphics/Pawprints/TealPawprint.svg");
+  background-image: url("../Graphics/Pawprints/TealPawprint.svg");
   background-size: contain;
   background-repeat: no-repeat;
   justify-self: center;
