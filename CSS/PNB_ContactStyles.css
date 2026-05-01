@@ -402,6 +402,67 @@ main + footer {
   transition: transform 0.3s ease;
 }
 
+/* =====
+   Toast
+   ===== */
+
+.toastOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10000;
+}
+
+.toastOverlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contactToast {
+    background: rgba(255,255,255,0.95);
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    font-weight: 600;
+    color: #1fa59a;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.toastPaw {
+    width: 24px;
+    height: 24px;
+}
+
+.toastCloseBtn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    margin-left: auto;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.toastCloseBtn:hover {
+    color: #1fa59a;
+}
+
+
 /* ======================
    Responsive Adjustments
    ====================== */

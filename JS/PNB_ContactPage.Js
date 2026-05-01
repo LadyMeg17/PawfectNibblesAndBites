@@ -15,6 +15,8 @@
 
 */
 
+"use strict";
+
 /* ==================================
    Global Variables and Initialization
    ================================== */
@@ -28,24 +30,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!submitBtn) return;
 
-/* =======
-   Touched
-   ======= */
+  /* =======
+     Touched
+     ======= */
 
   const fields = [nameInput, petSizeInput, subjectInput, messageInput];
- 
+
   fields.forEach((field) => {
     field.addEventListener("blur", () => {
       field.classList.add("touched");
     });
   });
 
-/* ===================
-   Validation Function
-   =================== */
+  /* =====
+     TOAST
+     ===== */
+
+  function showContactToast(message, onComplete) {
+
+    const overlay = document.createElement("div");
+    overlay.className = "toastOverlay";
+
+    const toast = document.createElement("div");
+    toast.className = "contactToast";
+
+    const paw = document.createElement("img");
+    paw.src = "Graphics/Pawprints/TealPawprint.svg";
+    paw.alt = "paw";
+    paw.className = "toastPaw";
+
+    const text = document.createElement("div");
+    text.textContent = message;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "✕";
+    closeBtn.className = "toastCloseBtn";
+
+    toast.appendChild(paw);
+    toast.appendChild(text);
+    toast.appendChild(closeBtn);
+    overlay.appendChild(toast);
+
+    document.body.appendChild(overlay);
+
+   setTimeout(() => overlay.classList.add("show"), 10);
+
+    let removed = false;
+
+    function closeToast() {
+      if (removed) return;
+      removed = true;
+
+      overlay.classList.remove("show");
+
+      setTimeout(() => {
+        overlay.remove();
+        if (typeof onComplete === "function") onComplete();
+      }, 300);
+    }
+
+    closeBtn.addEventListener("click", closeToast);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeToast();
+    });
+
+    setTimeout(closeToast, 2500);
+  }
+
+  /* ===================
+     Validation Function
+     =================== */
 
   function validateForm() {
-    // Reset previous messages
     nameInput.setCustomValidity("");
     petSizeInput.setCustomValidity("");
     subjectInput.setCustomValidity("");
@@ -79,23 +135,26 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-  return true;
-}
+    return true;
+  }
 
   /* ===============
      Form Submission
      =============== */
-  submitBtn.addEventListener("click", function(event) {
-    event.preventDefault(); 
 
-    if (!validateForm()) return; 
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (!validateForm()) return;
 
     const body = `Name: ${nameInput.value.trim()}%0D%0APet Size/Weight: ${petSizeInput.value.trim()}%0D%0AMessage:%0D%0A${messageInput.value.trim()}`;
 
     const mailtoLink = `mailto:pawfectnibblesandbites@gmail.com?subject=${encodeURIComponent(subjectInput.value.trim())}&body=${body}`;
 
-    alert("Your email is ready! It will open in your email client.");
+    showContactToast("Opening your email client...");
 
-    window.location.href = mailtoLink;
+    setTimeout(() => {
+      window.location.href = mailtoLink;
+    }, 300);
   });
 });
