@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toast.className = "contactToast";
 
     const paw = document.createElement("img");
-    paw.src = "Graphics/Pawprints/TealPawprint.svg";
+    paw.src = "../Graphics/Pawprints/TealPawprint.svg";
     paw.alt = "paw";
     paw.className = "toastPaw";
 
