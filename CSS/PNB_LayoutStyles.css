@@ -638,11 +638,11 @@ footer {
   }
 
   .divider.headerWave {
-    transform: translateY(45px); 
+    transform: translateY(55%); 
   }
 
   .divider.footerWave {
-    transform: translateY(-15px);
+    transform: translateY(-75%);
   }
 }
 
@@ -651,16 +651,7 @@ footer {
 
   .leftHead {
    padding-top: 2.5rem;
-  }
-
-
-  .divider.headerWave {
-    transform: translateY(35px);  
-  }
-
-  .divider.footerWave {
-    transform: translateY(10px);   
-  }
+  }  
 }
 
 @media (max-width: 500px) {
@@ -677,12 +668,6 @@ footer {
     font-size: 0.9rem;
     margin: 0.25rem 0 0 0;
     text-align: center;
-  }
-
-  .divider.headerWave {
-    transform: translateY(55%);  
-    width: 100%;
-    left: 0;
   }
 
  footer {
@@ -702,13 +687,5 @@ footer {
     margin-top: .5rem;  
   }
 
-  .divider.footerWave {
-    position: absolute;     
-    top: -15px;              
-    left: 0;
-    width: 100%;
-    transform: translateY(0); 
-    z-index: 0;               
-  }
 }
 
