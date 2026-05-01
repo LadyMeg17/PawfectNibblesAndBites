@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Captions array 
   const captions = [
-    "Nibbles Peanut Butter Pumpkin",
-    "Banana Nutty Bites",
-    "Peanut Butter Pumpkin Chews",
+    "PB Punkin Nibbles",
+    "Apple Oatitude Bites",
+    "BananaNutty Chews",
     "Bella and Thor, paws-itively paw-some snack inspectors"
   ];
 
