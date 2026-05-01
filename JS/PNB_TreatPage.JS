@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create paw icon
     const pawImg = document.createElement("img");
-    pawImg.src = "/Graphics/Pawprints/PurplePawprint.svg";
+    pawImg.src = "../Graphics/Pawprints/PurplePawprint.svg";
     pawImg.alt = "paw";
     pawImg.className = "toastPaw";
 
