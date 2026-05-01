@@ -155,12 +155,12 @@ section {
   background-size: cover;
 }
 
-.wave1 { background-image: url('../graphics/Backgrounds/Wave1.svg'); }
-.wave2 { background-image: url('../graphics/Backgrounds/Wave2.svg'); }
-.wave3 { background-image: url('../graphics/Backgrounds/Wave3.svg'); }
-.wave4 { background-image: url('../graphics/Backgrounds/Wave4.svg'); }
-.wave5 { background-image: url('../graphics/Backgrounds/Wave5.svg'); }
-.wave6 { background-image: url('../graphics/Backgrounds/Wave6.svg'); }
+.wave1 { background-image: url('../Graphics/Backgrounds/Wave1.svg'); }
+.wave2 { background-image: url('../Graphics/Backgrounds/Wave2.svg'); }
+.wave3 { background-image: url('../Graphics/Backgrounds/Wave3.svg'); }
+.wave4 { background-image: url('../Graphics/Backgrounds/Wave4.svg'); }
+.wave5 { background-image: url('../Graphics/Backgrounds/Wave5.svg'); }
+.wave6 { background-image: url('../Graphics/Backgrounds/Wave6.svg'); }
 
 /* ==========
    Typography
