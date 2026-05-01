@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const img =
       treat?.images?.[item.size]?.[0] ||
       treat?.img ||
-      "../Graphics/Treats/TreatPhotosComingSoon.png";
+      "Graphics/Treats/TreatPhotosComingSoon.png";
 
     return `
       <div class="confirmItem">
