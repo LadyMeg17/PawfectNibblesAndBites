@@ -107,7 +107,7 @@ function showCartToast(message, onComplete) {
   toast.className = "cartToast";
 
   const paw = document.createElement("img");
-  paw.src = "../Graphics/Pawprints/PurplePawprint.svg";
+  paw.src = "Graphics/Pawprints/PurplePawprint.svg";
   paw.alt = "paw";
   paw.className = "toastPaw";
 
