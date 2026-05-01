@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
             checkoutBtn.style.display = "block";
             paypalRendered = false;
 
-            window.location.href = "../PNB_Confirmation.html";
+            window.location.href = "PNB_Confirmation.html";
           });
 
         });
