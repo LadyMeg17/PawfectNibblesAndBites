@@ -79,15 +79,20 @@ header {
 
 /* Divider wave at bottom */
 .divider.headerWave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
   width: 100%;
-  aspect-ratio: 1200/80;
+  aspect-ratio: 1200 / 80;
+
   background-image: url('../Graphics/Backgrounds/HeaderWave.svg');
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
 
-  margin-top: auto;
-  transform: translateY(25px);
+  transform: translateY(60%); 
+  pointer-events: none;
 }
 
 
@@ -419,18 +424,19 @@ footer {
 /* Wave at the top of the footer */
 .divider.footerWave {
   position: absolute;
-  top: -30px;
   left: 0;
+  top: 0;
+
   width: 100%;
-  aspect-ratio: 1200/80;
+  aspect-ratio: 1200 / 80;
 
   background-image: url('../Graphics/Backgrounds/FooterWave.svg');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
 
-  z-index: 0;
-  transform: translateY(-25px);
+  transform: translateY(-60%);
+  pointer-events: none;
 }
 
 .footerLeft p {
