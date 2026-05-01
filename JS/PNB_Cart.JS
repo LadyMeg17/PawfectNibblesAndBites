@@ -165,7 +165,7 @@ function renderCartItem(item) {
   const imgSrc =
     treat.images?.[item.size]?.[0] ||
     treat.img ||
-    "../Graphics/Treats/TreatPhotosComingSoon.png";
+    "Graphics/Treats/TreatPhotosComingSoon.png";
 
   container.innerHTML = `
     <img src="${imgSrc}" alt="${item.name}" class="cartItemImg">
