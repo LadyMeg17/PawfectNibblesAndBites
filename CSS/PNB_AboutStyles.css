@@ -11,9 +11,9 @@
     Filename: PNB_AboutStyles.css
 */
 
-/* ==================
-   Layout: Navigation
-   ================== */
+/* ==========
+   Navigation
+   ========== */
 
 /* Jump Navigation */
 .jumpNavWrapper {
@@ -126,9 +126,9 @@
   box-sizing: border-box;
 }
 
-/* ================
-   Layout: Sections
-   ================ */
+/* ========
+   Sections
+   ======== */
 
 section {
   width: 100%;
@@ -137,7 +137,16 @@ section {
   text-align: center;
 }
 
+.aboutStory {
+  margin-top: 5rem;
+}
+
+.aboutClosing {
+  margin-bottom: 5rem;
+}
+
 /* Section Background Themes */
+
 .aboutStory { background-color: #b8a8d1; }
 .treatPhilosophy { background-color: #57bbb3; }
 .treatTasters { background-color: #f7e1c6; }
@@ -161,6 +170,10 @@ section {
 .wave4 { background-image: url('../Graphics/Backgrounds/Wave4.svg'); }
 .wave5 { background-image: url('../Graphics/Backgrounds/Wave5.svg'); }
 .wave6 { background-image: url('../Graphics/Backgrounds/Wave6.svg'); }
+
+/* Adjustments */
+
+
 
 /* ==========
    Typography
