@@ -285,6 +285,7 @@ details[open] .summaryArrow {
   position: relative;
   cursor: pointer;
 
+  margin-top: 0.5rem;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   background-color: #a08bc1;
@@ -324,6 +325,55 @@ details[open] .summaryArrow {
   margin-top: 1.5rem;
 }
 
+
+.continueBtn {
+  position: relative;
+  cursor: pointer;
+
+  height: 46px;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+
+  background-color: #1FA59A;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.continueBtn:hover {
+  transform: scale(1.1);
+  font-weight: 700;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.continueBtn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.15);
+
+  transform: rotate(25deg) translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.continueBtn:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
 /* ================
    Paw Bullet Lists
    ================ */
@@ -331,7 +381,7 @@ details[open] .summaryArrow {
 .pawBulletList {
   list-style: none;
   padding-left: 0;
-  margin: 0;
+  margin-top: -0.5rem;
 }
 
 .pawBulletList li {
