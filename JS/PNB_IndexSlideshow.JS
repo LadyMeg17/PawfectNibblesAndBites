@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".indexSlidesWrapper img");
   const captionBox = document.querySelector(".slideCaption");
 
-  /* ==========
-     Slide Data
-     ==========*/
+/* ========== 
+   Slide Data 
+   ========== */
 
   // Captions array 
   const captions = [
@@ -38,11 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentSlide = 0;
   let isPlaying = true;
-  let slideInterval = setInterval(nextSlide, 6000);
+  let slideInterval;
 
-  /* ===============
-     Slide Functions
-     =============== */
+/* ================
+   Image Load Check
+   ================ */
+
+  function areImagesLoaded(images) {
+    return Array.from(images).every(img => img.complete && img.naturalHeight > 0);
+  }
+
+  function startSlideshow() {
+    slideInterval = setInterval(nextSlide, 6000);
+    showSlide(currentSlide);  
+  }
+
+  function checkImagesAndStart() {
+    if (areImagesLoaded(slides)) {
+      startSlideshow();
+    } else {
+
+      setTimeout(checkImagesAndStart, 100);
+    }
+  }
+
+/* =============== 
+   Slide Functions 
+   =============== */
 
   function showSlide(n) {
     slides.forEach((slide, i) => {
@@ -68,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide((currentSlide - 1 + slides.length) % slides.length);
   }
 
-  /* =================
-     Playback Controls
-     ================= */
+/* ================= 
+   Playback Controls
+   ================= */
 
   function togglePlayPause() {
     const btn = document.querySelector(".playPause");
@@ -80,15 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.innerHTML = "&#9658;"; 
     } else {
       slideInterval = setInterval(nextSlide, 5000);
-      btn.innerHTML = "&#10073;&#10073;"
+      btn.innerHTML = "&#10073;&#10073;";
     }
 
     isPlaying = !isPlaying;
   }
 
-  /* ===============
-     Event Listeners
-     =============== */
+/* ===============
+   Event Listeners
+   =============== */
 
   document.querySelector(".nextSlide").addEventListener("click", nextSlide);
   document.querySelector(".prevSlide").addEventListener("click", prevSlide);
@@ -98,6 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".indexSlidesWrapper")
     .addEventListener("click", togglePlayPause);
 
-  // Initialize
-  showSlide(currentSlide);
+  // Initialize once images are loaded
+  checkImagesAndStart();  
 });
