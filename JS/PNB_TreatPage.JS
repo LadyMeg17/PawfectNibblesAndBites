@@ -37,6 +37,36 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
+/* ================================================
+    Quantity Cap to Prevent Accidental Large Orders
+    =============================================== */
+
+  let hasShownMaxToast = false;
+
+  if (quantityInput) {
+
+    // Auto-select on focus
+    quantityInput.addEventListener("focus", function () {
+      this.select();
+    });
+
+    // Enforce max while typing
+    quantityInput.addEventListener("input", function () {
+      let value = parseInt(this.value, 10);
+
+      if (value > 10) {
+        this.value = 10;
+
+        if (!hasShownMaxToast) {
+          showToast("Max 10 per click to avoid accidents, feel free to add more with another click!");
+          hasShownMaxToast = true;
+        }
+      } else {
+        hasShownMaxToast = false;
+      }
+    });
+  }
+
   /* ===============
      Price Functions
      =============== */
@@ -169,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("cart", JSON.stringify(cart));
       } catch (e) {
         console.error("Failed to save cart:", e);
-        showToast("Oops! Unable to add to cart. Please try again.");
+        showToast("Oops! We encountered an error adding the item to your bag. Please try again.");
         return;
       }
 
